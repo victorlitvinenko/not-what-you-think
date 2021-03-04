@@ -1,5 +1,11 @@
+import MainPage from './components/MainPage/MainPage';
+
 const App: React.FC = () => {
-  return <div className="App">Travel App</div>;
+  return (
+    <div className="App">
+      <MainPage />
+    </div>
+  );
 };
 
 export default App;
