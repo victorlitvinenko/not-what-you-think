@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
-import Country from './pages/Country/Country';
-import MainPage from './pages/MainPage/MainPage';
+import Country from './pages/Country';
+import MainPage from './pages/MainPage';
 
 const Routes = (): JSX.Element => (
   <Switch>
