@@ -1,4 +1,3 @@
-import { Col } from 'react-bootstrap';
 import { observer } from 'mobx-react-lite';
 
 import Country from './Country';
@@ -8,9 +7,9 @@ const MainPage: React.FC = () => {
   return (
     <div className="main-page">
       {CountryStore.countries.map((country) => (
-        <Col key={country.name}>
+        <div key={country.name}>
           <Country />
-        </Col>
+        </div>
       ))}
     </div>
   );
