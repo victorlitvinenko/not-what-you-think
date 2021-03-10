@@ -2,7 +2,7 @@ const logout = () => {
   localStorage.removeItem('token');
   sessionStorage.removeItem('token');
   // eslint-disable-next-line no-restricted-globals
-  location.reload();
+  // location.reload();
 };
 
 const getAccessToken = (): string | null => {
@@ -27,7 +27,14 @@ const request = async <T>(
     body = JSON.stringify(initialBody);
     headers = { ...headers, 'Content-Type': 'application/json' };
   }
-  const response = await fetch(url, { method, body, headers });
+  const response = await fetch(
+    `https://travel-app-react.herokuapp.com/${url}`,
+    {
+      method,
+      body,
+      headers,
+    }
+  );
   if (response.status === 401) {
     logout();
   }

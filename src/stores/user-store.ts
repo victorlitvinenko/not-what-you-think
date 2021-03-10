@@ -20,7 +20,7 @@ class UserStore {
       if (!token && login && password) {
         try {
           token = (
-            await request<Record<string, string>>('/login', 'POST', {
+            await request<Record<string, string>>('login', 'POST', {
               login,
               password,
             })
@@ -32,8 +32,9 @@ class UserStore {
               sessionStorage.setItem('token', token);
             }
           }
+          window.location.reload();
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       }
       if (token) {
@@ -51,7 +52,7 @@ class UserStore {
             this.profile = profile;
           }
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       }
     } finally {

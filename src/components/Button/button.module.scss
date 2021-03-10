@@ -1,0 +1,26 @@
+.button {
+    min-height: 40px;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 0.25rem;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    width: 100%;
+    &:active {
+        transform: translateY(2px);
+    }
+}
+
+.primary {
+    color: #fff;
+    background-color: #04a9f5;
+    border-color: #04a9f5;
+    margin-top: 5px;
+    &:active {
+        color: #fff;
+        background-color: #0386c3;
+        border-color: #037eb6;
+    }
+}
