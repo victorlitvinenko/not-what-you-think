@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import img from '../../media/images/img.jpg';
 import './country.scss';
 import '../../index.css';
-import Time from '../Helpers/Time';
+import DateTime from '../Helpers/DateTime';
 
 const Country: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ const Country: React.FC = () => {
               <span>breadcrumbs</span>
             </div>
             <div className="country-title-right">
-              <Time />
+              <DateTime />
               <span>weather</span>
             </div>
           </div>
