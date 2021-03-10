@@ -24,3 +24,10 @@
   display: flex;
   flex-direction: column;
 }
+
+.country-title-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}

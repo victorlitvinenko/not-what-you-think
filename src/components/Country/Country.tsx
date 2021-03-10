@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
 import img from '../../media/images/img.jpg';
 import './country.scss';
 import '../../index.css';
+import Time from '../Helpers/Time';
 
 const Country: React.FC = () => {
   return (
@@ -14,9 +16,15 @@ const Country: React.FC = () => {
                 <span>breadcrumbs</span>
               </div>
               <div className="country-title-right">
-                <span className="mr5">time</span>
-                <span className="mr5">date</span>
-                <span>weather</span>
+                <Link to="/">
+                  <button type="button" onClick={() => {}}>
+                    Back to menu
+                  </button>
+                </Link>
+                <div className="df mt5">
+                  <Time />
+                  <span>weather</span>
+                </div>
               </div>
             </div>
           </div>
