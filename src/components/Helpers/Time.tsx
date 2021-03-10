@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-let interval: NodeJS.Timeout | null = null;
-
 const Time = () => {
   const [state, setState] = useState({ time: new Date() });
 
   useEffect(() => {
-    interval = setInterval(() => {
+    setInterval(() => {
       setState({ time: new Date() });
     }, 1000);
-  }, []);
+  });
 
   return (
     <div>
