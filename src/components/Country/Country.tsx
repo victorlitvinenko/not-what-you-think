@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
+import DateTime from '../Helpers/DateTime';
 import img from '../../media/images/img.jpg';
 import './country.scss';
 import '../../index.css';
-import DateTime from '../Helpers/DateTime';
 
 const Country: React.FC = () => {
   return (
     <div className="country-box">
-      <div className="row">
-        <div className="col">
+      <Row>
+        <Col>
           <div className="country-title-box">
             <div className="country-title-left">
               <h3>Country name</h3>
@@ -19,14 +19,14 @@ const Country: React.FC = () => {
               <span>weather</span>
             </div>
           </div>
-        </div>
-      </div>
+        </Col>
+      </Row>
 
-      <div className="row">
-        <div className="col-12 col-md-6">
+      <Row>
+        <Col className="col-12 col-md-6">
           <img className="country-img" src={img} alt="" />
-        </div>
-        <div className="col-12 col-md-6">
+        </Col>
+        <Col className="col-12 col-md-6">
           <div className="dfc">
             <div className="j46 mb15">
               <span>Description</span>
@@ -44,38 +44,38 @@ const Country: React.FC = () => {
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </span>
             <div>
-              <div className="row">
-                <div className="col">
+              <Row>
+                <Col>
                   <div className="dfc">
                     <span>Capital</span>
                     <span>Minsk</span>
                   </div>
-                </div>
-                <div className="col">
+                </Col>
+                <Col>
                   <div className="dfc">
                     <span>Stars</span>
                     <span>Star Star Star</span>
                   </div>
-                </div>
-              </div>
+                </Col>
+              </Row>
             </div>
           </div>
-        </div>
-      </div>
+        </Col>
+      </Row>
 
-      <div className="row">
-        <div className="col-12">
+      <Row>
+        <Col>
           <div className="mt25">
             <h5>Attraction</h5>
           </div>
-        </div>
-      </div>
+        </Col>
+      </Row>
 
-      <div className="row">
-        <div className="col">
+      <Row>
+        <Col>
           <div>map</div>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </div>
   );
 };
