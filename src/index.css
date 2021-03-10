@@ -16,6 +16,18 @@ code {
   margin-right: 5px;
 }
 
+.mr10 {
+  margin-right: 10px;
+}
+
+.mt5 {
+  margin-top: 5px;
+}
+
+.mt25 {
+  margin-top: 25px;
+}
+
 .mb15 {
   margin-bottom: 15px;
 }
@@ -31,6 +43,7 @@ code {
 
 .j46 {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
