@@ -4,24 +4,24 @@ const Header: React.FC = () => {
   return (
     <header>
       <div className="header">
-        <select>
-          <option value="EN">EN</option>
-          <option value="RU">RU</option>
-          <option value="CN">CN</option>
-        </select>
-        <input
-          type="search"
-          className="search__country"
-          placeholder=" find country"
-        />
+        <div className="block">
+          <select className="select">
+            <option value="EN">EN 🇬🇧</option>
+            <option value="RU">RU 🇷🇺</option>
+            <option value="CH">中國 🇨🇳</option>
+          </select>
+          <input
+            type="search"
+            className="search__country"
+            placeholder=" find country"
+          />
+        </div>
         <img src="" alt="logo" />
-        <img src="" alt="img user" />
-        <p>
+        <div className="block">
+          <img src="" alt="img user" />
           <a href="https://png.icons8.com/firewall/color">Name(Login)</a>
-        </p>
-        <form>
           <button type="button">Sign out</button>
-        </form>
+        </div>
       </div>
     </header>
   );

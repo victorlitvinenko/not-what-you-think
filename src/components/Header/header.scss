@@ -3,5 +3,23 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around
+    justify-content: space-between;
+    min-height: 5vh;
+    align-items: center;
     }
+.block {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+.select {
+    min-width: 7vh;
+    background: #ffc107;
+    border-radius: 3px;
+}
+
+.search__country {
+    margin: 0 5px;
+    border: solid 1px black;
+    border-radius: 3px;
+}
