@@ -1,0 +1,24 @@
+.input {
+    background: #f4f7fa;
+    padding: 10px 20px;
+    font-size: 14px;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    outline: none;
+    margin: 5px 0;
+    width: 100%;
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%)
+    }
+    &_row {
+        padding: 0 15px;
+        width: 100%;
+        display: flex;
+    }
+}
