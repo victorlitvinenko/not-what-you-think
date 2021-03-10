@@ -21,14 +21,14 @@ class CountryStore {
   loadCountries() {
     this.countries = [
       {
-        name: 'Country 1',
+        name: 'CountryPage 1',
         note: 'Note',
         photo: 'Photo',
         video: '',
         map: '',
       },
       {
-        name: 'Country 2',
+        name: 'CountryPage 2',
         note: 'Note',
         photo: 'Photo',
         video: '',

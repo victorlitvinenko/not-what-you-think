@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
-
-import Country from './Country';
+import { Link } from 'react-router-dom';
+import CountryPage from './CountryPage';
 import CountryStore from '../stores/country-store';
 
 const MainPage: React.FC = () => {
@@ -8,7 +8,9 @@ const MainPage: React.FC = () => {
     <div className="main-page">
       {CountryStore.countries.map((country) => (
         <div key={country.name}>
-          <Country />
+          <Link to="/country/">
+            <span>{country.name}</span>
+          </Link>
         </div>
       ))}
     </div>
