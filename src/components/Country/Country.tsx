@@ -5,6 +5,7 @@ import img from '../../media/images/img.jpg';
 import CountriesCarousel from '../Helpers/CountriesCarousel';
 import Map from '../Helpers/Map';
 import './country.scss';
+import '../../index.css';
 
 const Country: React.FC = () => {
   return (

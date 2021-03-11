@@ -1,3 +1,5 @@
+@import "../../";
+
 .country-box {
   padding: 15px 0;
 }
@@ -56,4 +58,11 @@
   &:hover {
     opacity: .5 !important;
   }
+}
+
+.carousel-img {
+  height: 500px;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
