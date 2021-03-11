@@ -1,18 +1,22 @@
 import { makeAutoObservable } from 'mobx';
 
 class UiStore {
-  warning: string | null = null;
+  notification: string | null = null;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  showWarning(warning: string) {
-    this.warning = warning;
+  get isShowNotification() {
+    return !!this.notification;
   }
 
-  clearWarning() {
-    this.warning = null;
+  showNotification(notification: string) {
+    this.notification = notification;
+  }
+
+  clearNotification() {
+    this.notification = null;
   }
 }
 
