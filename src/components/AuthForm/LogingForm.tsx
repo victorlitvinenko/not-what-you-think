@@ -1,6 +1,10 @@
+/* eslint-disable no-console */
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+
 import UserStore from '../../stores/user-store';
+import Rate from '../Rate/Rate';
+
 import styles from './loging-form.module.scss';
 
 const LogingForm: React.FC = () => {
@@ -9,6 +13,7 @@ const LogingForm: React.FC = () => {
     password: '',
     name: '',
   });
+  const [rate, setRate] = useState(3);
   const [isRegistered, setIsRegistered] = useState(true);
 
   const onSubmit = () => {
@@ -65,6 +70,7 @@ const LogingForm: React.FC = () => {
             click here
           </span>
         </p>
+        <Rate value={rate} onChange={(data: number) => setRate(data)} />
       </div>
       <div className="ripple-background">
         <div className="circle xxlarge shade1" />
