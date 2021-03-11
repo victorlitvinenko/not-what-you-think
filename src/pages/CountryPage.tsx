@@ -7,7 +7,6 @@ import request from '../api/api';
 const CountryPage: React.FC = () => {
   const { id }: any = useParams();
   const [country, setCountry] = useState();
-  const test = false;
 
   useEffect(() => {
     async function fetchData() {

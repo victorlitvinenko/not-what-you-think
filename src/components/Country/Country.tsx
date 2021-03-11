@@ -1,8 +1,10 @@
-import { Row, Col } from 'react-bootstrap';
+import { Button, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import DateTime from '../Helpers/DateTime';
-import img from '../../media/images/img.jpg';
 import CountriesCarousel from '../Helpers/CountriesCarousel';
 import Map from '../Helpers/Map';
+import Rate from '../Rate/Rate';
+import img from '../../media/images/img.jpg';
 import './country.scss';
 import '../../index.css';
 
@@ -31,9 +33,14 @@ const Country: React.FC<Props> = (props) => {
               <h3>{countryData?.name}</h3>
               <span>breadcrumbs</span>
             </div>
-            <div className="country-title-right">
+            <div className="country-title-center">
               <DateTime />
               <span>weather</span>
+            </div>
+            <div className="country-title-right">
+              <Link to="/">
+                <Button>Back</Button>
+              </Link>
             </div>
           </div>
         </Col>
@@ -62,8 +69,8 @@ const Country: React.FC<Props> = (props) => {
                 </Col>
                 <Col>
                   <div className="dfc">
-                    <span>Stars</span>
-                    <span>Star Star Star</span>
+                    <span className="ml5">Rate country</span>
+                    <Rate onChange={() => {}} value={countryData?.feedback} />
                   </div>
                 </Col>
               </Row>
