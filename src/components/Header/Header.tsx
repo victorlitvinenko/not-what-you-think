@@ -16,6 +16,13 @@ const Header: React.FC = () => {
           className="mr-sm-2"
         />
         <Button variant="outline-primary">Search</Button>
+        <Form.Group className="ml-3" controlId="exampleForm.SelectCustomSizeSm">
+          <Form.Control as="select" custom>
+            <option>EN</option>
+            <option>RU</option>
+            <option>CH</option>
+          </Form.Control>
+        </Form.Group>
       </Form>
       <Navbar.Brand href="#home">LOGO</Navbar.Brand>
       <div className="block">

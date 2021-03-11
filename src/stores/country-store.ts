@@ -10,7 +10,7 @@ type CountryType = {
 };
 
 class CountryStore {
-  isLoading = false;
+  isLoading = true;
 
   countries: CountryType[] = [];
 
@@ -22,6 +22,7 @@ class CountryStore {
   async loadCountries() {
     try {
       this.countries = await request('countries', 'GET');
+      this.isLoading = false;
     } catch (error) {
       // console.log(error);
     }

@@ -1,5 +1,5 @@
 .footer {
-        background: orange;
+        background: rgb(58, 58, 58);
         display: flex;
         justify-content: space-around;
         min-height: 5vh;
@@ -10,10 +10,13 @@
         justify-content: space-around;
         align-items:center;
         flex-wrap:wrap;
+        color: rgb(207, 207, 207);
 }
-.footer__content a{
+.footer__content a{ 
         display:inline-block;
         padding:10px;
+        color: #fff;
+        text-decoration: underline;
       }
 
 a.rollover__vl {
