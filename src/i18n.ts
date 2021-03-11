@@ -1,25 +1,31 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
+import i18n from 'i18next';
+import Backend from 'i18next-xhr-backend';
+import { initReactI18next } from 'react-i18next';
 
-import ru from './utils/locales/ru';
-import en from './utils/locales/en';
+import RU from './utils/locales/ru';
+import EN from './utils/locales/en';
 
 declare module 'react-i18next' {
   interface Resources {
-    ru: typeof ru;
-    en: typeof en;
+    ru: typeof RU;
+    en: typeof EN;
   }
 }
 
-export const resources = { en, ru } as const;
+const resources = {
+  ru: {
+    translation: RU,
+  },
+
+  en: {
+    translation: EN,
+  },
+};
 
 i18n.use(initReactI18next).init({
   lng: 'en',
-  ns: ['ns1', 'ns2'],
+  ns: ['EN', 'RU'],
   resources,
 });
 
-declare module 'react-i18next' {
-  type DefaultResources = typeof resources['en'];
-  interface Resources extends DefaultResources { }
-}
+export default resources;

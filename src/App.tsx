@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Switch } from 'react-router-dom';
 import { Toast } from 'react-bootstrap';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
@@ -11,6 +13,10 @@ import UiStore from './stores/ui-store';
 import './App.scss';
 
 const App: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const [activeLocale, setActiveLocale] = useState('en');
+  const changeLocale = (e: string) => setActiveLocale(e);
+
   const isAuthenticated =
     localStorage.getItem('token') || sessionStorage.getItem('token');
 
@@ -18,7 +24,7 @@ const App: React.FC = () => {
     <div className="App">
       {isAuthenticated ? (
         <>
-          <Header />
+          <Header t={t} i18n={i18n} />
           <main className="container">
             <Switch>
               <Routes />

@@ -3,7 +3,14 @@ import UserStore from '../../stores/user-store';
 import './header.scss';
 // import { GG } from '../../assets/images/united_kingdom_flag.png';
 
-const Header: React.FC = () => {
+// type t: function;
+
+type Props = {
+  t: unknown;
+  i18n: unknown;
+};
+
+const Header: React.FC<Props> = ({ t, i18n }) => {
   return (
     <Navbar
       className="justify-content-between align-items-center"
