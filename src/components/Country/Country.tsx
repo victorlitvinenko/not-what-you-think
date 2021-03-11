@@ -1,12 +1,10 @@
-import { Carousel, Row, Col } from 'react-bootstrap';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { Row, Col } from 'react-bootstrap';
 import DateTime from '../Helpers/DateTime';
 import img from '../../media/images/img.jpg';
 import CountriesCarousel from '../Helpers/CountriesCarousel';
+import Map from '../Helpers/Map';
 import './country.scss';
-import '../../index.css';
-import slide1 from '../../media/images/slide1.jpg';
-import slide2 from '../../media/images/slide2.jpg';
-import slide3 from '../../media/images/slide3.jpg';
 
 const Country: React.FC = () => {
   return (
@@ -27,10 +25,10 @@ const Country: React.FC = () => {
       </Row>
 
       <Row>
-        <Col className="col-12 col-md-6">
+        <Col className="col-12 col-md-4">
           <img className="country-img" src={img} alt="" />
         </Col>
-        <Col className="col-12 col-md-6">
+        <Col className="col-12 col-md-8">
           <div className="dfc">
             <div className="j46 mb15">
               <span>Description</span>
@@ -72,46 +70,28 @@ const Country: React.FC = () => {
           <div className="mt25">
             <h5>Attraction</h5>
           </div>
-          <Carousel>
-            <Carousel.Item>
-              <img src={slide1} alt="First slide" />
-              <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img src={slide2} alt="First slide" />
-
-              <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img src={slide3} alt="First slide" />
-
-              <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-          {/* <CountriesCarousel /> */}
+          <CountriesCarousel />
         </Col>
       </Row>
 
       <Row>
         <Col>
-          <div>map</div>
+          {/* <MapContainer
+            center={[51.505, -0.09]}
+            zoom={13}
+            scrollWheelZoom={false}
+          >
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={[51.505, -0.09]}>
+              <Popup>
+                A pretty CSS3 popup. <br /> Easily customizable.
+              </Popup>
+            </Marker>
+          </MapContainer> */}
+          {/* <Map /> */}
         </Col>
       </Row>
     </div>
