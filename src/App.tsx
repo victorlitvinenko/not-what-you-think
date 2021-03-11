@@ -1,40 +1,55 @@
+import { Switch } from 'react-router-dom';
 import { Toast } from 'react-bootstrap';
+import { observer } from 'mobx-react-lite';
+
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Routes from './Routes';
-import './App.scss';
 import AuthPage from './pages/AuthPage';
 import UiStore from './stores/ui-store';
 
+import './App.scss';
+
 const App: React.FC = () => {
-  if (!localStorage.getItem('token') && !sessionStorage.getItem('token'))
-    return (
-      <>
-        <AuthPage />
-        <Toast
-          onClose={UiStore.clearNotification}
-          show={UiStore.isShowNotification}
-          delay={1500}
-          autohide
-        >
-          <Toast.Header>
-            <strong className="mr-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-          </Toast.Header>
-          <Toast.Body>{UiStore.notification}</Toast.Body>
-        </Toast>
-      </>
-    );
+  const isAuthenticated =
+    localStorage.getItem('token') || sessionStorage.getItem('token');
 
   return (
     <div className="App">
-      <Header />
-      <main className="container">
-        <Routes />
-      </main>
-      <Footer />
+      {isAuthenticated ? (
+        <>
+          <Header />
+          <main className="container">
+            <Switch>
+              <Routes />
+            </Switch>
+          </main>
+          <Footer />
+        </>
+      ) : (
+        <AuthPage />
+      )}
+
+      <Toast
+        onClose={() => UiStore.clearNotification()}
+        show={UiStore.isShowNotification}
+        delay={2000}
+        autohide
+        style={{
+          position: 'absolute',
+          top: '0',
+          right: '0',
+          zIndex: 10,
+        }}
+      >
+        <Toast.Header>
+          <strong className="mr-auto">Bootstrap</strong>
+          <small>11 mins ago</small>
+        </Toast.Header>
+        <Toast.Body>{UiStore.notification}</Toast.Body>
+      </Toast>
     </div>
   );
 };
 
-export default App;
+export default observer(App);

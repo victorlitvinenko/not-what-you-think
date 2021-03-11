@@ -19,24 +19,20 @@ class UserStore {
       let token: string =
         localStorage.getItem('token') || sessionStorage.getItem('token') || '';
       if (!token && login && password) {
-        try {
-          token = (
-            await request<Record<string, string>>('login', 'POST', {
-              login,
-              password,
-            })
-          )?.token;
-          if (token) {
-            if (remember) {
-              localStorage.setItem('token', token);
-            } else {
-              sessionStorage.setItem('token', token);
-            }
+        token = (
+          await request<Record<string, string>>('login', 'POST', {
+            login,
+            password,
+          })
+        )?.token;
+        if (token) {
+          if (remember) {
+            localStorage.setItem('token', token);
+          } else {
+            sessionStorage.setItem('token', token);
           }
-          window.location.reload();
-        } catch (error) {
-          // console.log(error);
         }
+        window.location.reload();
       }
       if (token) {
         this.token = token;
@@ -53,11 +49,11 @@ class UserStore {
             this.profile = profile;
           }
         } catch (error) {
-          uiStore.showNotification('Not valid login or password');
+          uiStore.showNotification('Cannot get profile');
         }
       }
-    } catch {
-      // console.log('error');
+    } catch (error) {
+      uiStore.showNotification('Wrong login or password');
     } finally {
       this.isLoading = false;
     }
@@ -78,7 +74,7 @@ class UserStore {
           window.location.reload();
         }
       } catch (error) {
-        // console.log(error);
+        uiStore.showNotification('Regestration Error!');
       }
     } finally {
       this.isLoading = false;
