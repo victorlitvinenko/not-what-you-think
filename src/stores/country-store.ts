@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx';
+import request from '../api/api';
 
 type CountryType = {
   name: string;
@@ -18,23 +19,12 @@ class CountryStore {
     makeAutoObservable(this);
   }
 
-  loadCountries() {
-    this.countries = [
-      {
-        name: 'CountryPage 1',
-        note: 'Note',
-        photo: 'Photo',
-        video: '',
-        map: '',
-      },
-      {
-        name: 'CountryPage 2',
-        note: 'Note',
-        photo: 'Photo',
-        video: '',
-        map: '',
-      },
-    ];
+  async loadCountries() {
+    try {
+      this.countries = await request('countries', 'GET');
+    } catch (error) {
+      // console.log(error);
+    }
   }
 }
 

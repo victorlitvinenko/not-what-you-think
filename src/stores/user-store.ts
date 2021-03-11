@@ -1,5 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import request from '../api/api';
+import uiStore from './ui-store';
 
 class UserStore {
   token = '';
@@ -52,8 +53,32 @@ class UserStore {
             this.profile = profile;
           }
         } catch (error) {
-          // console.log(error);
+          uiStore.showNotification('Not valid login or password');
         }
+      }
+    } catch {
+      // console.log('error');
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
+  async register(login: string, password: string, name: string) {
+    try {
+      this.isLoading = true;
+      let newUser = '';
+      try {
+        newUser = await request('user', 'POST', {
+          login,
+          password,
+          name,
+        });
+        if (newUser) {
+          this.login(login, password);
+          window.location.reload();
+        }
+      } catch (error) {
+        // console.log(error);
       }
     } finally {
       this.isLoading = false;
@@ -65,6 +90,7 @@ class UserStore {
     this.profile = {};
     localStorage.removeItem('token');
     sessionStorage.removeItem('token');
+    window.location.reload();
   }
 }
 

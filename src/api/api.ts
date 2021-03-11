@@ -1,3 +1,5 @@
+import UiStore from '../stores/ui-store';
+
 const logout = () => {
   localStorage.removeItem('token');
   sessionStorage.removeItem('token');
@@ -41,6 +43,7 @@ const request = async <T>(
   const data = await response.json();
 
   if (!response.ok) {
+    UiStore.showNotification(data.error);
     throw new Error(response.statusText);
   }
   return data;

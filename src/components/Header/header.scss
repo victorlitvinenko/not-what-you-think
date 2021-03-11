@@ -1,5 +1,5 @@
 .header {
-    background: yellow;
+    // background: yellow;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -11,6 +11,7 @@
     width: 300px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 .select {
     min-width: 7vh;
