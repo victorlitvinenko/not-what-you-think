@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom';
 import DateTime from '../Helpers/DateTime';
 import CountriesCarousel from '../Helpers/CountriesCarousel';
 import Map from '../Helpers/Map';
-import Rate from '../Rate/Rate';
 import img from '../../media/images/img.jpg';
-import './country.scss';
-import '../../index.css';
 
-type CountryType = {
+import './country.scss';
+
+export type CountryType = {
   capital: string;
   description: string;
   image: string;
   name: string;
   stars: string;
-  feedback: any;
+  feedback: Record<string, unknown>[];
 };
 
 type Props = {
@@ -70,7 +69,7 @@ const Country: React.FC<Props> = (props) => {
                 <Col>
                   <div className="dfc">
                     <span className="ml5">Rate country</span>
-                    <Rate onChange={() => {}} value={countryData?.feedback} />
+                    {/* <Rate onChange={() => {}} value={countryData?.feedback} /> */}
                   </div>
                 </Col>
               </Row>
