@@ -47,6 +47,7 @@
     height: 100%;
   }
 }
+
 /*
 .carousel-control-next,
 .carousel-control-prev {
@@ -76,4 +77,17 @@
 
 .country_widgets_box {
   background: red;
+}
+
+.ReactGridGallery_tile-icon-bar {
+  display: none;
+}
+
+.close_1x3s325 {
+  padding: 0;
+
+  svg {
+    height: 30px;
+    width: 30px;
+  }
 }

@@ -16,32 +16,20 @@ const Country: React.FC<Props> = (props) => {
   const { countryData } = props;
   const images = [
     {
-      src: 'https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg',
-      thumbnail:
-        'https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg',
-      thumbnailWidth: 320,
-      thumbnailHeight: 174,
+      src: 'http://i.ytimg.com/vi/M8esst8xBvI/maxresdefault.jpg',
+      thumbnail: 'http://i.ytimg.com/vi/M8esst8xBvI/maxresdefault.jpg',
       caption: 'After Rain (Jeshu John - designerspics.com)',
     },
     {
-      src: 'https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg',
-      thumbnail:
-        'https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg',
-      thumbnailWidth: 320,
-      thumbnailHeight: 212,
-      tags: [
-        { value: 'Ocean', title: 'Ocean' },
-        { value: 'People', title: 'People' },
-      ],
+      src: 'https://luckclub.ru/images/luckclub/2018/08/s1200-4.jpg',
+      thumbnail: 'https://luckclub.ru/images/luckclub/2018/08/s1200-4.jpg',
       caption: 'Boats (Jeshu John - designerspics.com)',
     },
-
     {
-      src: 'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg',
+      src:
+        'https://m.fishki.net/upload/users/2020/05/12/482/214decef8fb9932f637e5c1c0b837ece.jpg',
       thumbnail:
-        'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg',
-      thumbnailWidth: 320,
-      thumbnailHeight: 212,
+        'https://m.fishki.net/upload/users/2020/05/12/482/214decef8fb9932f637e5c1c0b837ece.jpg',
     },
   ];
   return (
