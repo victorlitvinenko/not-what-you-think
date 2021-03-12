@@ -61,3 +61,8 @@ code {
   align-items: center;
   justify-content: center;
 }
+
+.card-text {
+  height: 100px;
+  overflow: hidden;
+}

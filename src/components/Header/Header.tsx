@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
-import { Button, Form, FormControl, Navbar } from 'react-bootstrap';
+import { Button, Form, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-
+import InputSearch from '../InputSearch/InputSearch';
 import UiStore from '../../stores/ui-store';
 import UserStore from '../../stores/user-store';
 
@@ -11,7 +11,7 @@ import './header.scss';
 const Header: React.FC = () => {
   return (
     <Navbar
-      className="justify-content-between align-items-center"
+      className="justify-content-between align-items-center header"
       bg="light"
       variant="light"
     >
@@ -19,12 +19,7 @@ const Header: React.FC = () => {
         <Navbar.Brand>LOGO</Navbar.Brand>
       </NavLink>
       <Form inline>
-        <FormControl
-          type="text"
-          placeholder="Search country"
-          className="mr-sm-2"
-        />
-        <Button variant="outline-primary">Search</Button>
+        <InputSearch />
         <Form.Group className="ml-3" controlId="exampleForm.SelectCustomSizeSm">
           <Form.Control
             as="select"

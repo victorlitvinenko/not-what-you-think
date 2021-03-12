@@ -2,9 +2,10 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 // import Loader from 'react-loader-web';
 
-import Country, { CountryType } from '../components/Country/Country';
+import { CountryType } from '../stores/country-store';
 import request from '../api/api';
 import Loader from '../components/Loader/Loader';
+import Country from '../components/Country/Country';
 
 type ParamType = {
   id: string;
