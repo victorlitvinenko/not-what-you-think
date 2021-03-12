@@ -90,7 +90,9 @@ const Country: React.FC<Props> = (props) => {
       <Row>
         <Col>
           {/* <div>map</div> */}
-          <Map />
+          <div className="map_box" id="mapbox/streets-v11">
+            <Map />
+          </div>
         </Col>
       </Row>
     </div>
