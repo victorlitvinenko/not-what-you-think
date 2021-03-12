@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.leaflet-container {
+  height: 100%;
+}
+
 .mr5 {
   margin-right: 5px;
 }
