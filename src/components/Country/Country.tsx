@@ -5,15 +5,7 @@ import CountriesCarousel from '../Helpers/CountriesCarousel';
 import Map from '../Helpers/Map';
 
 import './country.scss';
-
-export type CountryType = {
-  capital: string;
-  description: string;
-  image: string;
-  name: string;
-  stars: string;
-  feedback: Record<string, unknown>[];
-};
+import { CountryType } from '../../stores/country-store';
 
 type Props = {
   countryData: CountryType | undefined;

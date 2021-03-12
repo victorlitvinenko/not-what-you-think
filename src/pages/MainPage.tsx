@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
 
-import CountryStore from '../stores/country-store';
+import CountryStore, { CountryType } from '../stores/country-store';
 
 const MainPage: React.FC = () => {
   return (
@@ -14,11 +14,14 @@ const MainPage: React.FC = () => {
       ) : (
         <>
           <div className="df justify-content-between w-100 flex-wrap">
-            {CountryStore.countries.map((country: Record<string, string>) => (
+            {CountryStore.countries.map((country: CountryType) => (
               <Card
                 className="mt-4"
-                style={{ width: '18rem' }}
                 key={country.name}
+                style={{
+                  width: '22rem',
+                  boxShadow: '5px 5px 20px 5px #0022462e',
+                }}
               >
                 <Card.Img variant="top" src={country.image} />
                 <Card.Body>
