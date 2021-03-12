@@ -1,5 +1,10 @@
+import { observer } from 'mobx-react-lite';
 import { Button, Form, FormControl, Navbar } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+
+import UiStore from '../../stores/ui-store';
 import UserStore from '../../stores/user-store';
+
 import './header.scss';
 // import { GG } from '../../assets/images/united_kingdom_flag.png';
 
@@ -10,7 +15,9 @@ const Header: React.FC = () => {
       bg="light"
       variant="light"
     >
-      <Navbar.Brand href="#home">LOGO</Navbar.Brand>
+      <NavLink to="/">
+        <Navbar.Brand>LOGO</Navbar.Brand>
+      </NavLink>
       <Form inline>
         <FormControl
           type="text"
@@ -19,10 +26,15 @@ const Header: React.FC = () => {
         />
         <Button variant="outline-primary">Search</Button>
         <Form.Group className="ml-3" controlId="exampleForm.SelectCustomSizeSm">
-          <Form.Control as="select" custom>
-            <option value="GB">🇬🇧</option>
-            <option value="RU">🇷🇺</option>
-            <option value="CN">🇨🇳</option>
+          <Form.Control
+            as="select"
+            custom
+            value={UiStore.language}
+            onChange={({ target: { value } }) => UiStore.setLanguage(value)}
+          >
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+            <option value="cn">CN</option>
           </Form.Control>
         </Form.Group>
       </Form>
@@ -36,4 +48,4 @@ const Header: React.FC = () => {
     </Navbar>
   );
 };
-export default Header;
+export default observer(Header);

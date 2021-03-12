@@ -3,6 +3,8 @@ import { makeAutoObservable } from 'mobx';
 class UiStore {
   notification: string | null = null;
 
+  language = 'ru';
+
   constructor() {
     makeAutoObservable(this);
   }
@@ -17,6 +19,10 @@ class UiStore {
 
   clearNotification() {
     this.notification = null;
+  }
+
+  setLanguage(language: string) {
+    this.language = language;
   }
 }
 

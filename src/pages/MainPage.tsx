@@ -2,7 +2,7 @@
 import { observer } from 'mobx-react-lite';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Loader from 'react-loader-web';
+import Loader from '../components/Loader/Loader';
 
 import CountryStore from '../stores/country-store';
 
@@ -10,12 +10,16 @@ const MainPage: React.FC = () => {
   return (
     <div className="main-page df align-items-center justify-content-center">
       {CountryStore.isLoading ? (
-        <Loader type="Loading" color="#00BFFF" height={300} width={300} />
+        <Loader />
       ) : (
         <>
           <div className="df justify-content-between w-100 flex-wrap">
             {CountryStore.countries.map((country: Record<string, string>) => (
-              <Card className="mt-4" style={{ width: '18rem' }}>
+              <Card
+                className="mt-4"
+                style={{ width: '18rem' }}
+                key={country.name}
+              >
                 <Card.Img variant="top" src={country.image} />
                 <Card.Body>
                   <Card.Title>

@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Loader from 'react-loader-web';
+// import Loader from 'react-loader-web';
 
 import Country, { CountryType } from '../components/Country/Country';
 import request from '../api/api';
+import Loader from '../components/Loader/Loader';
 
 type ParamType = {
   id: string;
@@ -23,11 +24,7 @@ const CountryPage: React.FC = () => {
 
   return (
     <div className="j5">
-      {!country ? (
-        <Loader type="Loading" color="#00BFFF" height={300} width={300} />
-      ) : (
-        <Country countryData={country} />
-      )}
+      {!country ? <Loader /> : <Country countryData={country} />}
     </div>
   );
 };

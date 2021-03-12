@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import request from '../api/api';
-import uiStore from './ui-store';
+import UiStore from './ui-store';
 
 class UserStore {
   token = '';
@@ -49,11 +49,11 @@ class UserStore {
             this.profile = profile;
           }
         } catch (error) {
-          uiStore.showNotification('Cannot get profile');
+          UiStore.showNotification('Cannot get profile');
         }
       }
     } catch (error) {
-      uiStore.showNotification('Wrong login or password');
+      UiStore.showNotification('Wrong login or password');
     } finally {
       this.isLoading = false;
     }
@@ -74,7 +74,7 @@ class UserStore {
           window.location.reload();
         }
       } catch (error) {
-        uiStore.showNotification(`User with login: ${login} already exists`);
+        UiStore.showNotification(`User with login: ${login} already exists`);
       }
     } finally {
       this.isLoading = false;

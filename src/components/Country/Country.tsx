@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import DateTime from '../Helpers/DateTime';
 import CountriesCarousel from '../Helpers/CountriesCarousel';
 import Map from '../Helpers/Map';
-import img from '../../media/images/img.jpg';
 
 import './country.scss';
 
