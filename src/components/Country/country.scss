@@ -48,6 +48,7 @@
   }
 }
 
+/*
 .carousel-control-next,
 .carousel-control-prev {
   max-height: 500px;
@@ -65,11 +66,28 @@
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-}
+}*/
 
 .map_box {
   margin: 20px 0;
   padding: 20px;
   border: 1px solid rgb(192, 191, 191);
   height: 500px;
+}
+
+.country_widgets_box {
+  background: red;
+}
+
+.ReactGridGallery_tile-icon-bar {
+  display: none;
+}
+
+.close_1x3s325 {
+  padding: 0;
+
+  svg {
+    height: 30px;
+    width: 30px;
+  }
 }
