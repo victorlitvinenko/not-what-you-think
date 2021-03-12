@@ -1,32 +1,56 @@
-import { Row, Col } from 'react-bootstrap';
+import { Button, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import DateTime from '../Helpers/DateTime';
+import CountriesCarousel from '../Helpers/CountriesCarousel';
+import Map from '../Helpers/Map';
+import Rate from '../Rate/Rate';
 import img from '../../media/images/img.jpg';
 import './country.scss';
 import '../../index.css';
 
-const Country: React.FC = () => {
+type CountryType = {
+  capital: string;
+  description: string;
+  image: string;
+  name: string;
+  stars: string;
+  feedback: any;
+};
+
+type Props = {
+  countryData: CountryType | undefined;
+};
+
+const Country: React.FC<Props> = (props) => {
+  const { countryData } = props;
+
   return (
     <div className="country-box">
       <Row>
         <Col>
           <div className="country-title-box">
             <div className="country-title-left">
-              <h3>Country name</h3>
+              <h3>{countryData?.name}</h3>
               <span>breadcrumbs</span>
             </div>
-            <div className="country-title-right">
+            <div className="country-title-center">
               <DateTime />
               <span>weather</span>
+            </div>
+            <div className="country-title-right">
+              <Link to="/">
+                <Button>Back</Button>
+              </Link>
             </div>
           </div>
         </Col>
       </Row>
 
       <Row>
-        <Col className="col-12 col-md-6">
-          <img className="country-img" src={img} alt="" />
+        <Col className="col-12 col-md-4">
+          <img className="country-img" src={countryData?.image} alt="" />
         </Col>
-        <Col className="col-12 col-md-6">
+        <Col className="col-12 col-md-8">
           <div className="dfc">
             <div className="j46 mb15">
               <span>Description</span>
@@ -34,27 +58,19 @@ const Country: React.FC = () => {
                 Check video about this country
               </a>
             </div>
-            <span className="mb15">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </span>
+            <span className="mb15">{countryData?.description}</span>
             <div>
               <Row>
                 <Col>
                   <div className="dfc">
                     <span>Capital</span>
-                    <span>Minsk</span>
+                    <span>{countryData?.capital}</span>
                   </div>
                 </Col>
                 <Col>
                   <div className="dfc">
-                    <span>Stars</span>
-                    <span>Star Star Star</span>
+                    <span className="ml5">Rate country</span>
+                    <Rate onChange={() => {}} value={countryData?.feedback} />
                   </div>
                 </Col>
               </Row>
@@ -68,12 +84,14 @@ const Country: React.FC = () => {
           <div className="mt25">
             <h5>Attraction</h5>
           </div>
+          <CountriesCarousel />
         </Col>
       </Row>
 
       <Row>
         <Col>
-          <div>map</div>
+          {/* <div>map</div> */}
+          <Map />
         </Col>
       </Row>
     </div>

@@ -1,17 +1,18 @@
+@import "../../";
+
 .country-box {
   padding: 15px 0;
 }
 
 .country-img {
   width: 100%;
-  min-width: 250px;
   margin-bottom: 15px;
 }
 
 .country-title-box {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 25px;
   border-bottom: 1px solid;
@@ -20,13 +21,48 @@
 .country-title-left {
   display: flex;
   flex-direction: column;
+
   h3 {
     margin-bottom: 0;
   }
 }
 
-.country-title-right {
+.country-title-center {
   display: flex;
   flex-wrap: wrap;
   margin-top: 5px;
+}
+
+.carousel-inner {
+  max-height: 500px;
+}
+
+.carousel-item {
+  text-align: center;
+  max-height: 500px;
+  background-color: black;
+
+  img {
+    max-height: 500px;
+    height: 100%;
+  }
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  max-height: 500px;
+  background-color: black;
+  width: 75px !important;
+  opacity: .3 !important;
+
+  &:hover {
+    opacity: .5 !important;
+  }
+}
+
+.carousel-img {
+  height: 500px;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
