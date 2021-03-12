@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
 import UserStore from '../../stores/user-store';
-import Rate from '../Rate/Rate';
 
 import styles from './loging-form.module.scss';
 
@@ -12,12 +11,13 @@ const LogingForm: React.FC = () => {
     login: '',
     password: '',
     name: '',
+    remember: false,
   });
-  const [rate, setRate] = useState(3);
   const [isRegistered, setIsRegistered] = useState(true);
 
   const onSubmit = () => {
-    if (isRegistered) UserStore.login(state.login, state.password);
+    if (isRegistered)
+      UserStore.login(state.login, state.password, state.remember);
     else UserStore.register(state.login, state.password, state.name);
   };
 
@@ -25,7 +25,7 @@ const LogingForm: React.FC = () => {
     <div className={styles.auth}>
       <div className={styles.auth__container}>
         <h2>{isRegistered ? 'Sign in' : 'Registration'}</h2>
-        <Form>
+        <Form className="w-100">
           {!isRegistered ? (
             <Form.Group controlId="formBasicLogin">
               <Form.Label>Name</Form.Label>
@@ -53,13 +53,17 @@ const LogingForm: React.FC = () => {
             />
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Save credentials" />
+            <Form.Check
+              onClick={() => setState({ ...state, remember: !state.remember })}
+              type="checkbox"
+              label="Save credentials"
+            />
           </Form.Group>
           <Button onClick={onSubmit} variant="primary">
             Submit
           </Button>
         </Form>
-        <p className={`${styles.description} mt-2`}>
+        <p className={`${styles.description} mt-4 mb-0`}>
           If you are {isRegistered ? 'not registered' : 'alredy have account'}{' '}
           <span
             onKeyDown={() => null}
@@ -70,7 +74,6 @@ const LogingForm: React.FC = () => {
             click here
           </span>
         </p>
-        <Rate value={rate} onChange={(data: number) => setRate(data)} />
       </div>
       <div className="ripple-background">
         <div className="circle xxlarge shade1" />

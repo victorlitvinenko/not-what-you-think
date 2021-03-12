@@ -37,14 +37,14 @@ const App: React.FC = () => {
         autohide
         style={{
           position: 'absolute',
-          top: '0',
-          right: '0',
+          top: '3%',
+          right: '1%',
           zIndex: 10,
         }}
       >
         <Toast.Header>
-          <strong className="mr-auto">Bootstrap</strong>
-          <small>11 mins ago</small>
+          <strong className="mr-auto">Warning</strong>
+          <small>Now</small>
         </Toast.Header>
         <Toast.Body>{UiStore.notification}</Toast.Body>
       </Toast>

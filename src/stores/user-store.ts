@@ -74,7 +74,7 @@ class UserStore {
           window.location.reload();
         }
       } catch (error) {
-        uiStore.showNotification('Regestration Error!');
+        uiStore.showNotification(`User with login: ${login} already exists`);
       }
     } finally {
       this.isLoading = false;
