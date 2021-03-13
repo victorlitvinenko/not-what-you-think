@@ -64,10 +64,18 @@ code {
 
 .card-text {
   height: 100px;
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navbar-brand {
+  text-align: center;
 }
 
 .navbar-brand img {
-  width: 100%;
-  height: 100%;
+  width: 150px;
 }

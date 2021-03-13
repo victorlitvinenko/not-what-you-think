@@ -24,7 +24,9 @@ const MainPage: React.FC = () => {
                   boxShadow: '5px 5px 20px 5px #0022462e',
                 }}
               >
-                <Card.Img variant="top" src={country.image} />
+                <Link to={`/country/${country._id}`}>
+                  <Card.Img variant="top" src={country.image} />
+                </Link>
                 <Card.Body>
                   <Card.Title>
                     <Link to={`/country/${country._id}`}>{country.name}</Link>

@@ -1,6 +1,7 @@
-import { makeAutoObservable } from 'mobx';
+import { autorun, makeAutoObservable } from 'mobx';
 
 import request from '../api/api';
+import UiStore from './ui-store';
 
 export type CountryType = {
   _id: string;
@@ -19,13 +20,19 @@ export class Country {
 
   constructor(id: string) {
     makeAutoObservable(this);
-    this.load(id);
+    // this.load(id, UiStore.language);
+    autorun(() => {
+      this.load(id, UiStore.language);
+    });
   }
 
-  async load(id: string): Promise<void> {
+  async load(id: string, language: string): Promise<void> {
     try {
       this.isLoading = true;
-      this.data = await request<CountryType>(`countries/${id}`, 'GET');
+      this.data = await request<CountryType>(
+        `countries/${id}/${language}`,
+        'GET'
+      );
     } finally {
       this.isLoading = false;
     }
