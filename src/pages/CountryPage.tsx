@@ -1,10 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-// import Loader from 'react-loader-web';
+import { observer } from 'mobx-react-lite';
 
-import { CountryType } from '../stores/country-store';
-import request from '../api/api';
-import Loader from '../components/Loader/Loader';
+import { Country as CountryType } from '../stores/country';
 import Country from '../components/Country/Country';
 
 type ParamType = {
@@ -13,21 +10,13 @@ type ParamType = {
 
 const CountryPage: React.FC = () => {
   const { id } = useParams<ParamType>();
-  const [country, setCountry] = useState<CountryType>();
-
-  useEffect(() => {
-    async function fetchData() {
-      const data = await request<CountryType>(`countries/${id}`, 'GET');
-      setCountry(data);
-    }
-    fetchData();
-  }, [id]);
+  const country = new CountryType(id);
 
   return (
     <div className="j5">
-      {!country ? <Loader /> : <Country countryData={country} />}
+      <Country country={country} />
     </div>
   );
 };
 
-export default CountryPage;
+export default observer(CountryPage);

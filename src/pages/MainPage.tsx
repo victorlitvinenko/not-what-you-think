@@ -4,7 +4,8 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
 
-import CountryStore, { CountryType } from '../stores/country-store';
+import CountryStore from '../stores/country-store';
+import { CountryType } from '../stores/country';
 
 const MainPage: React.FC = () => {
   return (

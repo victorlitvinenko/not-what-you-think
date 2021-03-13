@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react';
 import { Form, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import CountryStore, { CountryType } from '../../stores/country-store';
+import CountryStore from '../../stores/country-store';
+import { CountryType } from '../../stores/country';
 
 import styles from './inputsearch.module.scss';
 

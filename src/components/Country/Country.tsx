@@ -1,19 +1,21 @@
 import { Button, Row, Col } from 'react-bootstrap';
 import Gallery from 'react-grid-gallery';
 import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+
 import DateTime from '../Helpers/DateTime';
 import Rate from '../Rate/Rate';
 import Map from '../Helpers/Map';
+import { Country as CountryType } from '../../stores/country';
+import Loader from '../Loader/Loader';
 
 import './country.scss';
-import { CountryType } from '../../stores/country-store';
 
 type Props = {
-  countryData: CountryType | undefined;
+  country: CountryType | undefined;
 };
 
-const Country: React.FC<Props> = (props) => {
-  const { countryData } = props;
+const Country: React.FC<Props> = ({ country }) => {
   const images = [
     {
       src: 'http://i.ytimg.com/vi/M8esst8xBvI/maxresdefault.jpg',
@@ -32,13 +34,15 @@ const Country: React.FC<Props> = (props) => {
         'https://m.fishki.net/upload/users/2020/05/12/482/214decef8fb9932f637e5c1c0b837ece.jpg',
     },
   ];
-  return (
+  return country?.isLoading ? (
+    <Loader />
+  ) : (
     <div className="country-box">
       <Row>
         <Col>
           <div className="country-title-box">
             <div className="country-title-left">
-              <h3>{countryData?.name}</h3>
+              <h3>{country?.data?.name}</h3>
               <span>breadcrumbs</span>
             </div>
             <div className="country-title-center">
@@ -58,7 +62,11 @@ const Country: React.FC<Props> = (props) => {
           <div>
             <Row>
               <Col className="col-12 col-md-4">
-                <img className="country-img" src={countryData?.image} alt="" />
+                <img
+                  className="country-img"
+                  src={country?.data?.image}
+                  alt=""
+                />
               </Col>
               <Col className="col-12 col-md-8">
                 <div className="dfc">
@@ -68,13 +76,13 @@ const Country: React.FC<Props> = (props) => {
                       Check video about this country
                     </a>
                   </div>
-                  <span className="mb15">{countryData?.description}</span>
+                  <span className="mb15">{country?.data?.description}</span>
                   <div>
                     <Row>
                       <Col>
                         <div className="dfc">
                           <span>Capital</span>
-                          <span>{countryData?.capital}</span>
+                          <span>{country?.data?.capital}</span>
                         </div>
                       </Col>
                       <Col>
@@ -82,7 +90,7 @@ const Country: React.FC<Props> = (props) => {
                           <span className="ml5">Rate country</span>
                           <Rate
                             onChange={() => {}}
-                            value={Number(countryData?.stars)}
+                            value={Number(country?.data?.stars)}
                           />
                         </div>
                       </Col>
@@ -118,4 +126,4 @@ const Country: React.FC<Props> = (props) => {
     </div>
   );
 };
-export default Country;
+export default observer(Country);

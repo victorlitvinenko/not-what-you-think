@@ -1,15 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import request from '../api/api';
-
-export type CountryType = {
-  capital: string;
-  description: string;
-  image: string;
-  name: string;
-  stars: string;
-  feedback: Record<string, unknown>[];
-  _id: string;
-};
+import { CountryType } from './country';
 
 class CountryStore {
   isLoading = true;
