@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { observer } from 'mobx-react-lite';
 
 import { Country as CountryType } from '../stores/country';
 import Country from '../components/Country/Country';
@@ -19,4 +18,4 @@ const CountryPage: React.FC = () => {
   );
 };
 
-export default observer(CountryPage);
+export default CountryPage;
