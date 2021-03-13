@@ -1,12 +1,13 @@
 import { observer } from 'mobx-react-lite';
 import { Button, Form, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+
 import InputSearch from '../InputSearch/InputSearch';
 import UiStore from '../../stores/ui-store';
 import UserStore from '../../stores/user-store';
+import Logo from '../../media/images/logo.svg';
 
 import './header.scss';
-// import { GG } from '../../assets/images/united_kingdom_flag.png';
 
 const Header: React.FC = () => {
   return (
@@ -16,7 +17,9 @@ const Header: React.FC = () => {
       variant="light"
     >
       <NavLink to="/">
-        <Navbar.Brand>LOGO</Navbar.Brand>
+        <Navbar.Brand>
+          <img src={Logo} alt="Logo" />
+        </Navbar.Brand>
       </NavLink>
       <Form inline>
         <InputSearch />
