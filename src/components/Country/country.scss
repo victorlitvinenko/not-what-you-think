@@ -1,12 +1,13 @@
-@import "../../";
-
 .country-box {
   padding: 15px 0;
+  width: 100%;
 }
 
 .country-img {
   width: 100%;
   margin-bottom: 15px;
+  border: 1px solid #c0bfbf;
+  user-select: none;
 }
 
 .country-title-box {
@@ -14,6 +15,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 15px;
   margin-bottom: 25px;
   border-bottom: 1px solid;
 }
@@ -33,41 +35,6 @@
   margin-top: 5px;
 }
 
-.carousel-inner {
-  max-height: 500px;
-}
-
-.carousel-item {
-  text-align: center;
-  max-height: 500px;
-  background-color: black;
-
-  img {
-    max-height: 500px;
-    height: 100%;
-  }
-}
-
-/*
-.carousel-control-next,
-.carousel-control-prev {
-  max-height: 500px;
-  background-color: black;
-  width: 75px !important;
-  opacity: .3 !important;
-
-  &:hover {
-    opacity: .5 !important;
-  }
-}
-
-.carousel-img {
-  height: 500px;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-}*/
-
 .map_box {
   margin: 20px 0;
   padding: 20px;
@@ -79,12 +46,23 @@
   background: red;
 }
 
-.ReactGridGallery_tile-icon-bar {
-  display: none;
+.ReactGridGallery {
+  &_tile:not(:last-child) {
+    margin-right: 10px !important;
+  }
+
+  &_tile-viewport {
+    border: 1px solid #c0bfbf;
+    &:hover {
+      transition: all .3s;
+      transform: scale(1.01, 1.01);
+      box-shadow: 0 0 10px #767676;
+    }
+  }
 }
 
 .close_1x3s325 {
-  padding: 0;
+  padding: 0 !important;
 
   svg {
     height: 30px;
