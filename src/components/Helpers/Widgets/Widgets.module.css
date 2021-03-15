@@ -65,3 +65,14 @@
 .CurrencyExchangeRates{
   /* background-color: rgb(197, 197, 212); */
 }
+
+@media (max-width: 993px) {
+  .Widgets {
+    position: static;
+    margin-top: 25px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
