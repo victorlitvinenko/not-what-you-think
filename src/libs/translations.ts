@@ -6,6 +6,15 @@ const translations: Record<string, Record<string, string>> = {
     attractions: 'Attractions',
     description: 'Description',
     rating: 'Rating',
+    // days: [
+    //   'monday',
+    //   'tuesday',
+    //   'wednesday',
+    //   'thursday',
+    //   'friday',
+    //   'saturday',
+    //   'sunday',
+    // ],
   },
   ru: {
     searchCountry: 'Поиск страны',
@@ -14,6 +23,7 @@ const translations: Record<string, Record<string, string>> = {
     attractions: 'Достопримечательности',
     description: 'Описание',
     rating: 'Рейтинг',
+    // days: [],
   },
   cn: {
     searchCountry: '国家搜索',
@@ -22,6 +32,7 @@ const translations: Record<string, Record<string, string>> = {
     attractions: '景点',
     description: '描述',
     rating: '评分',
+    // days: [],
   },
 };
 
