@@ -13,6 +13,9 @@ export type CountryType = {
   feedback: Record<string, unknown>[];
   timeZone: Record<string, string> | undefined;
   video: string;
+  attractions: Record<string, string>[];
+  capitalLon: number;
+  capitalLat: number;
 };
 
 export class Country {
