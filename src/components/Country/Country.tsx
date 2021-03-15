@@ -3,6 +3,7 @@ import Gallery from 'react-grid-gallery';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
+import QierPlayer from 'qier-player';
 // import DateTime from '../Helpers/DateTime';
 import Rate from '../Rate/Rate';
 import Map from '../Helpers/Map';
@@ -73,6 +74,16 @@ const Country: React.FC<Props> = ({ country }) => {
                   src={country?.data?.image}
                   alt=""
                 />
+                <div>
+                  <QierPlayer
+                    width={250}
+                    height={250}
+                    language="en"
+                    showVideoQuality
+                    themeColor="#abc123"
+                    srcOrigin={country?.data?.video}
+                  />
+                </div>
               </Col>
               <Col className="col-12 col-md-8">
                 <div className="dfc">

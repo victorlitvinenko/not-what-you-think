@@ -12,6 +12,7 @@ export type CountryType = {
   stars: string;
   feedback: Record<string, unknown>[];
   timeZone: Record<string, string> | undefined;
+  video: string;
 };
 
 export class Country {
