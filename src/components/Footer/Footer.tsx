@@ -1,10 +1,17 @@
+import { observer } from 'mobx-react-lite';
+
+import UiStore from '../../stores/ui-store';
+import translations from '../../libs/translations';
+
 import './footer.scss';
 
 const Footer: React.FC = () => {
+  const t = translations[UiStore.language];
+
   return (
     <footer className="footer">
       <div className="footer__content">
-        <div>Created by </div>
+        <div>{t.createdBy}</div>
         <a
           target="_blank"
           rel="noreferrer"
@@ -68,4 +75,4 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-export default Footer;
+export default observer(Footer);

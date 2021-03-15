@@ -2,7 +2,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { Form, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+
 import CountryStore from '../../stores/country-store';
+import UiStore from '../../stores/ui-store';
+import translations from '../../libs/translations';
 import { CountryType } from '../../stores/country';
 
 import styles from './inputsearch.module.scss';
@@ -12,6 +16,7 @@ const InputSearch: React.FC = () => {
   const [searchResults, setSearchResults] = useState<CountryType[]>([]);
   const [outClicked, setOutClicked] = useState(false);
   const target = useRef(null);
+  const t = translations[UiStore.language];
 
   useEffect(() => {
     const results: CountryType[] = CountryStore.countries.filter((country) =>
@@ -24,7 +29,7 @@ const InputSearch: React.FC = () => {
     <Form.Group ref={target} style={{ position: 'relative' }} className="ml-3">
       <FormControl
         type="text"
-        placeholder="Search country"
+        placeholder={t.searchCountry}
         onFocus={() => setOutClicked(false)}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
@@ -47,4 +52,4 @@ const InputSearch: React.FC = () => {
   );
 };
 
-export default InputSearch;
+export default observer(InputSearch);

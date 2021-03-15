@@ -8,6 +8,8 @@ import Rate from '../Rate/Rate';
 import Map from '../Helpers/Map';
 import { Country as CountryType } from '../../stores/country';
 import Loader from '../Loader/Loader';
+import UiStore from '../../stores/ui-store';
+import translations from '../../libs/translations';
 
 import './country.scss';
 
@@ -16,6 +18,8 @@ type Props = {
 };
 
 const Country: React.FC<Props> = ({ country }) => {
+  const t = translations[UiStore.language];
+
   const images = [
     {
       src: 'http://i.ytimg.com/vi/M8esst8xBvI/maxresdefault.jpg',
@@ -34,6 +38,7 @@ const Country: React.FC<Props> = ({ country }) => {
         'https://m.fishki.net/upload/users/2020/05/12/482/214decef8fb9932f637e5c1c0b837ece.jpg',
     },
   ];
+
   return country?.isLoading ? (
     <Loader />
   ) : (
@@ -71,7 +76,7 @@ const Country: React.FC<Props> = ({ country }) => {
               <Col className="col-12 col-md-8">
                 <div className="dfc">
                   <div className="j46 mb15">
-                    <span>Description</span>
+                    <span>{t.description}</span>
                     <a href="https://www.youtube.com/">
                       Check video about this country
                     </a>
@@ -81,13 +86,13 @@ const Country: React.FC<Props> = ({ country }) => {
                     <Row>
                       <Col>
                         <div className="dfc">
-                          <span>Capital</span>
+                          <span>{t.capital}</span>
                           <span>{country?.data?.capital}</span>
                         </div>
                       </Col>
                       <Col>
                         <div className="dfc">
-                          <span className="ml5">Rate country</span>
+                          <span className="ml5">{t.rating}</span>
                           <Rate
                             onChange={() => {}}
                             value={Number(country?.data?.stars)}
@@ -103,7 +108,7 @@ const Country: React.FC<Props> = ({ country }) => {
             <Row>
               <Col>
                 <div className="mt25">
-                  <h5>Attraction</h5>
+                  <h5>{t.attractions}</h5>
                   <Gallery images={images} />
                 </div>
               </Col>

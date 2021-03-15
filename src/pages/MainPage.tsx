@@ -2,12 +2,16 @@
 import { observer } from 'mobx-react-lite';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Loader from '../components/Loader/Loader';
 
+import Loader from '../components/Loader/Loader';
 import CountryStore from '../stores/country-store';
 import { CountryType } from '../stores/country';
+import UiStore from '../stores/ui-store';
+import translations from '../libs/translations';
 
 const MainPage: React.FC = () => {
+  const t = translations[UiStore.language];
+
   return (
     <div className="main-page df align-items-center justify-content-center">
       {CountryStore.isLoading ? (
@@ -35,7 +39,7 @@ const MainPage: React.FC = () => {
                 </Card.Body>
                 <Card.Footer>
                   <small className="text-muted">
-                    Capital: {country.capital}
+                    {t.capital}: {country.capital}
                   </small>
                 </Card.Footer>
               </Card>
