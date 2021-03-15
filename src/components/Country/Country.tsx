@@ -10,6 +10,7 @@ import { Country as CountryType } from '../../stores/country';
 import Loader from '../Loader/Loader';
 import UiStore from '../../stores/ui-store';
 import translations from '../../libs/translations';
+import Widgets from '../Helpers/Widgets/Widgets';
 
 import './country.scss';
 
@@ -125,7 +126,7 @@ const Country: React.FC<Props> = ({ country }) => {
           </div>
         </Col>
         <Col className="col-12 col-sm-3">
-          <div className="country_widgets_box">WIDGETS HERE</div>
+          <Widgets location="Minsk" />
         </Col>
       </Row>
     </div>

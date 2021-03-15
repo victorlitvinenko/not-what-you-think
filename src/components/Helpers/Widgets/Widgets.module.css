@@ -1,0 +1,24 @@
+.Widgets {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: auto;
+  padding: 20px 0;
+  font-family: inherit;
+}
+.Widgets>div{
+  margin-bottom: 20px;
+}
+.Widgets>div:last-of-type{
+  margin-bottom: 0;
+}
+.LocalTime{
+  background-color: rgb(236, 180, 180);
+}
+/* .LocalTime>h2 */
+.Weather{
+  background-color: rgb(151, 177, 151);
+}
+.CurrencyExchangeRates{
+  background-color: rgb(197, 197, 212);
+}
