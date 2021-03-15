@@ -43,7 +43,7 @@ const Country: React.FC<Props> = ({ country }) => {
         </Col>
       </Row>
       <Row>
-        <Col className="col-12 col-sm-9">
+        <Col className="col-12 col-lg-9">
           <div>
             <Row>
               <Col className="col-12 col-md-4">
@@ -101,19 +101,17 @@ const Country: React.FC<Props> = ({ country }) => {
                 </div>
               </Col>
             </Row>
-
-            <Row>
-              <Col>
-                {/* <div>map</div> */}
-                <div className="map_box" id="mapbox/streets-v11">
-                  <Map capitalLat={lat} capitalLon={lon} />
-                </div>
-              </Col>
-            </Row>
           </div>
         </Col>
-        <Col className="col-12 col-sm-3">
+        <Col className="col-12 col-lg-3">
           <Widgets timeZone={country?.data?.timeZone} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <div className="map_box" id="mapbox/streets-v11">
+            <Map capitalLat={lat} capitalLon={lon} />
+          </div>
         </Col>
       </Row>
     </div>
