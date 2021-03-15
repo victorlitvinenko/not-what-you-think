@@ -53,6 +53,7 @@
 
   &_tile-viewport {
     border: 1px solid #c0bfbf;
+    max-width: 125px;
     &:hover {
       transition: all 0.3s;
       transform: scale(1.01, 1.01);
