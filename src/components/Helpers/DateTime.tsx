@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const DateTime: React.FC = () => {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState<Date | null>(null);
 
   const transformDate = () => {
     const date: Date = new Date();
@@ -17,6 +17,10 @@ const DateTime: React.FC = () => {
     return `${dd}.${mm}.${yy}`;
   };
 
+  useEffect(() => {
+    setTime(new Date());
+  }, []);
+
   // useEffect(() => {
   //   setInterval(() => {
   //     setTime(new Date());
@@ -25,7 +29,7 @@ const DateTime: React.FC = () => {
 
   return (
     <div>
-      <span className="mr10">{time.toLocaleTimeString()}</span>
+      <span className="mr10">{time?.toLocaleTimeString()}</span>
       <span className="clock__date mr10">{transformDate()}</span>
     </div>
   );

@@ -1,9 +1,9 @@
 import { Button, Row, Col } from 'react-bootstrap';
-// import Gallery from 'react-grid-gallery';
+import Gallery from 'react-grid-gallery';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
-import DateTime from '../Helpers/DateTime';
+// import DateTime from '../Helpers/DateTime';
 import Rate from '../Rate/Rate';
 import Map from '../Helpers/Map';
 import { Country as CountryType } from '../../stores/country';
@@ -52,7 +52,7 @@ const Country: React.FC<Props> = ({ country }) => {
               <span>breadcrumbs</span>
             </div>
             <div className="country-title-center">
-              <DateTime />
+              {/* <DateTime /> */}
               <span>weather</span>
             </div>
             <div className="country-title-right">
@@ -110,7 +110,7 @@ const Country: React.FC<Props> = ({ country }) => {
               <Col>
                 <div className="mt25">
                   <h5>Attraction</h5>
-                  {/* <Gallery images={images} /> */}
+                  <Gallery images={images} />
                 </div>
               </Col>
             </Row>
