@@ -14,6 +14,7 @@ import translations from '../../libs/translations';
 import Widgets from '../Helpers/Widgets/Widgets';
 
 import './country.scss';
+import '../../index.css';
 
 type Props = {
   country: CountryType | undefined;
@@ -21,26 +22,30 @@ type Props = {
 
 const Country: React.FC<Props> = ({ country }) => {
   const t = translations[UiStore.language];
-
   const images = [
     {
       src: 'http://i.ytimg.com/vi/M8esst8xBvI/maxresdefault.jpg',
       thumbnail: 'http://i.ytimg.com/vi/M8esst8xBvI/maxresdefault.jpg',
       caption: 'After Rain (Jeshu John - designerspics.com)',
+      thumbnailWidth: 290,
+      thumbnailHeight: 212,
     },
     {
       src: 'https://luckclub.ru/images/luckclub/2018/08/s1200-4.jpg',
       thumbnail: 'https://luckclub.ru/images/luckclub/2018/08/s1200-4.jpg',
       caption: 'Boats (Jeshu John - designerspics.com)',
+      thumbnailWidth: 290,
+      thumbnailHeight: 212,
     },
     {
       src:
         'https://m.fishki.net/upload/users/2020/05/12/482/214decef8fb9932f637e5c1c0b837ece.jpg',
       thumbnail:
         'https://m.fishki.net/upload/users/2020/05/12/482/214decef8fb9932f637e5c1c0b837ece.jpg',
+      thumbnailWidth: 290,
+      thumbnailHeight: 212,
     },
   ];
-
   return country?.isLoading ? (
     <Loader />
   ) : (
@@ -52,10 +57,7 @@ const Country: React.FC<Props> = ({ country }) => {
               <h3>{country?.data?.name}</h3>
               <span>breadcrumbs</span>
             </div>
-            <div className="country-title-center">
-              {/* <DateTime /> */}
-              <span>weather</span>
-            </div>
+
             <div className="country-title-right">
               <Link to="/">
                 <Button>Back</Button>
@@ -65,7 +67,7 @@ const Country: React.FC<Props> = ({ country }) => {
         </Col>
       </Row>
       <Row>
-        <Col className="col-12 col-sm-9">
+        <Col className="col-12 col-lg-9">
           <div>
             <Row>
               <Col className="col-12 col-md-4">
@@ -125,22 +127,21 @@ const Country: React.FC<Props> = ({ country }) => {
                 </div>
               </Col>
             </Row>
-
-            <Row>
-              <Col>
-                {/* <div>map</div> */}
-                <div className="map_box" id="mapbox/streets-v11">
-                  <Map />
-                </div>
-              </Col>
-            </Row>
           </div>
         </Col>
-        <Col className="col-12 col-sm-3">
+        <Col className="col-12 col-lg-3">
           <Widgets timeZone={country?.data?.timeZone} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <div className="map_box">
+            <Map />
+          </div>
         </Col>
       </Row>
     </div>
   );
 };
+
 export default observer(Country);

@@ -20,29 +20,33 @@ const MainPage: React.FC = () => {
         <>
           <div className="df justify-content-between w-100 flex-wrap">
             {CountryStore.countries.map((country: CountryType) => (
-              <Card
-                className="mt-4"
-                key={country.name}
-                style={{
-                  width: '22rem',
-                  boxShadow: '5px 5px 20px 5px #0022462e',
-                }}
+              <Link
+                className="country_card_link"
+                to={`/country/${country._id}`}
               >
-                <Link to={`/country/${country._id}`}>
-                  <Card.Img variant="top" src={country.image} />
-                </Link>
-                <Card.Body>
-                  <Card.Title>
-                    <Link to={`/country/${country._id}`}>{country.name}</Link>
-                  </Card.Title>
-                  <Card.Text>{country.description}</Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                  <small className="text-muted">
-                    {t.capital}: {country.capital}
-                  </small>
-                </Card.Footer>
-              </Card>
+                <div className="mt-4">
+                  <Card
+                    key={country.name}
+                    style={{
+                      width: '22rem',
+                      boxShadow: '5px 5px 20px 5px #0022462e',
+                    }}
+                  >
+                    <Card.Img variant="top" src={country.image} />
+                    <Card.Body>
+                      <Card.Title>{country.name}</Card.Title>
+                      <Card.Text className="select-none">
+                        {country.description}
+                      </Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                      <small className="text-muted select-none">
+                        {t.capital}: {country.capital}
+                      </small>
+                    </Card.Footer>
+                  </Card>
+                </div>
+              </Link>
             ))}
           </div>
         </>
