@@ -29,7 +29,7 @@ const getDayString = (date: Date) => {
 };
 
 const getDateString = (date: Date) => {
-  const Months: any = {
+  const Months: Record<string, string> = {
     Jan: 'january',
     Feb: 'february',
     Mar: 'march',
@@ -52,10 +52,11 @@ const getLocalTimeString = (date: Date) =>
   )}`;
 
 type Props = {
+  locality: string | null | undefined;
   utc: string | null | undefined;
 };
 
-const LocalTime: React.FC<Props> = ({ utc = null }) => {
+const LocalTime: React.FC<Props> = ({ utc = null, locality }) => {
   const [timestamp, setTimestamp] = useState(Date.now());
   const countryDate = getDateforUTC(timestamp, utc);
 
@@ -68,6 +69,7 @@ const LocalTime: React.FC<Props> = ({ utc = null }) => {
 
   return (
     <div className={styles.LocalTime}>
+      <h4>{locality}</h4>
       <span>{getDateString(countryDate)}</span>
       <h4>{getDayString(countryDate)}</h4>
       <span>{getLocalTimeString(countryDate)}</span>

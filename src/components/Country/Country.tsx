@@ -1,5 +1,5 @@
 import { Button, Row, Col } from 'react-bootstrap';
-import Gallery from 'react-grid-gallery';
+// import Gallery from 'react-grid-gallery';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
@@ -109,8 +109,8 @@ const Country: React.FC<Props> = ({ country }) => {
             <Row>
               <Col>
                 <div className="mt25">
-                  <h5>{t.attractions}</h5>
-                  <Gallery images={images} />
+                  <h5>Attraction</h5>
+                  {/* <Gallery images={images} /> */}
                 </div>
               </Col>
             </Row>
@@ -126,7 +126,7 @@ const Country: React.FC<Props> = ({ country }) => {
           </div>
         </Col>
         <Col className="col-12 col-sm-3">
-          <Widgets location="Minsk" />
+          <Widgets timeZone={country?.data?.timeZone} />
         </Col>
       </Row>
     </div>
