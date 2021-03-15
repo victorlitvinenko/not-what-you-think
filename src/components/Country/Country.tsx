@@ -46,7 +46,6 @@ const Country: React.FC<Props> = ({ country }) => {
       thumbnailHeight: 212,
     },
   ];
-
   return country?.isLoading ? (
     <Loader />
   ) : (
@@ -147,4 +146,5 @@ const Country: React.FC<Props> = ({ country }) => {
     </div>
   );
 };
+
 export default observer(Country);

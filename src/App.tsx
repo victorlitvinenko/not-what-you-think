@@ -19,7 +19,7 @@ const App: React.FC = () => {
       {isAuthenticated ? (
         <>
           <Header />
-          <main className="container-xl">
+          <main className="container">
             <Switch>
               <Routes />
             </Switch>
