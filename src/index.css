@@ -62,6 +62,10 @@ code {
   justify-content: center;
 }
 
+.select-none {
+  user-select: none;
+}
+
 .card-text {
   height: 100px;
   display: block;

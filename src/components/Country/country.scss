@@ -54,7 +54,7 @@
   &_tile-viewport {
     border: 1px solid #c0bfbf;
     &:hover {
-      transition: all .3s;
+      transition: all 0.3s;
       transform: scale(1.01, 1.01);
       box-shadow: 0 0 10px #767676;
     }
@@ -67,5 +67,25 @@
   svg {
     height: 30px;
     width: 30px;
+  }
+}
+
+.country_card_link {
+  &:hover {
+    text-decoration: none;
+  }
+
+  .card-title {
+    color: rgb(1, 136, 189);
+  }
+
+  .card {
+    color: #333;
+
+    &:hover {
+      transition: 0.3s;
+      transform: translateY(2px);
+      box-shadow: rgba(0, 34, 70, 0.5) 5px 5px 20px 5px !important;
+    }
   }
 }

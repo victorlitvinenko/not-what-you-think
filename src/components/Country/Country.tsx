@@ -57,10 +57,7 @@ const Country: React.FC<Props> = ({ country }) => {
               <h3>{country?.data?.name}</h3>
               <span>breadcrumbs</span>
             </div>
-            <div className="country-title-center">
-              {/* <DateTime /> */}
-              <span>weather</span>
-            </div>
+
             <div className="country-title-right">
               <Link to="/">
                 <Button>Back</Button>
@@ -70,7 +67,7 @@ const Country: React.FC<Props> = ({ country }) => {
         </Col>
       </Row>
       <Row>
-        <Col className="col-12 col-sm-9">
+        <Col className="col-12 col-lg-9">
           <div>
             <Row>
               <Col className="col-12 col-md-4">
@@ -132,7 +129,7 @@ const Country: React.FC<Props> = ({ country }) => {
             </Row>
           </div>
         </Col>
-        <Col className="col-12 col-sm-3">
+        <Col className="col-12 col-lg-3">
           <Widgets timeZone={country?.data?.timeZone} />
         </Col>
       </Row>
