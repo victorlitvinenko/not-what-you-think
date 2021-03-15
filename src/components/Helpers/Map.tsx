@@ -21,13 +21,9 @@ const LocationMarker: React.FC<Record<string, number>> = ({ lat, lng }) => {
     iconSize: new L.Point(80, 85),
   });
 
-  const map = useMapEvents({
-    click() {
-      map.locate();
-    },
+  useMapEvents({
     locationfound(e) {
       setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom());
     },
   });
 

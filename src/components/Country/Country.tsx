@@ -53,12 +53,12 @@ const Country: React.FC<Props> = ({ country }) => {
                   width="255px"
                   alt=""
                 />
-                <div>
+                <div className="country-video">
                   <QierPlayer
                     width={255}
                     height={200}
                     language="en"
-                    showVideoQuality
+                    showVideoQuality={false}
                     themeColor="#abc123"
                     srcOrigin={country?.data?.video}
                   />
@@ -97,7 +97,10 @@ const Country: React.FC<Props> = ({ country }) => {
               <Col>
                 <div className="mt25">
                   <h5>Attraction</h5>
-                  <Gallery images={country?.data?.attractions} />
+                  <Gallery
+                    backdropClosesModal
+                    images={country?.data?.attractions || []}
+                  />
                 </div>
               </Col>
             </Row>
