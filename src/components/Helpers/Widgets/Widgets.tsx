@@ -13,8 +13,8 @@ const Widgets: React.FC<Props> = ({ timeZone }) => {
   const locality = timeZone?.locality || 'Minsk';
   const utc = timeZone?.utc || null;
   // const {locality = 'Minsk', utc =  null} = timeZone;
-  const weatherURL = `http://api.weatherapi.com/v1/current.json?key=a3f00bbdcdd14af0b89215725211403&q=${locality}&aqi=yes`;
-  const currencyURL = 'http://';
+  const weatherURL = `https://api.weatherapi.com/v1/current.json?key=a3f00bbdcdd14af0b89215725211403&q=${locality}&aqi=yes`;
+  const currencyURL = 'https://';
 
   // console.log(locality, utc);
 

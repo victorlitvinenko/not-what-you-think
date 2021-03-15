@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+// import UiStore from '../../../stores/ui-store';
+// import translations from '../../../libs/translations';
 import styles from './Widgets.module.css';
 
 const addNull = (value: number) => {
