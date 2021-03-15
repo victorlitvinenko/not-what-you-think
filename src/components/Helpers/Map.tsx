@@ -10,10 +10,10 @@ import L from 'leaflet';
 
 import iconUrl from '../../assets/gif/mapgif.gif';
 
-const LocationMarker = () => {
+const LocationMarker: React.FC<Record<string, number>> = ({ lat, lng }) => {
   const [position, setPosition] = useState({
-    lat: 53.902284,
-    lng: 27.561831,
+    lat,
+    lng,
   });
 
   const iconPerson = new L.Icon({
@@ -38,10 +38,10 @@ const LocationMarker = () => {
   );
 };
 
-const Map: React.FC = () => {
+const Map: React.FC<Record<string, number>> = ({ capitalLat, capitalLon }) => {
   return (
     <MapContainer
-      center={{ lat: 53.902284, lng: 27.561831 }}
+      center={{ lat: capitalLat, lng: capitalLon }}
       zoom={13}
       scrollWheelZoom={false}
     >
@@ -49,7 +49,7 @@ const Map: React.FC = () => {
         attribution="Created by top 1 team in the world"
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <LocationMarker />
+      <LocationMarker lat={capitalLat} lng={capitalLon} />
     </MapContainer>
   );
 };
