@@ -17,11 +17,11 @@ const DateTime: React.FC = () => {
     return `${dd}.${mm}.${yy}`;
   };
 
-  useEffect(() => {
-    setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-  });
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setTime(new Date());
+  //   }, 1000);
+  // });
 
   return (
     <div>

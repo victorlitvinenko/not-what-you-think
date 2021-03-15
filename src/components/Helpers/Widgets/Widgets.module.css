@@ -1,0 +1,67 @@
+.Widgets {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: auto;
+  /* padding: 20px 0; */
+  font-family: inherit;
+}
+.Widgets>div{
+  padding: 20px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.Widgets>div:last-of-type{
+  border-bottom: none;
+}
+.LocalTime{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.LocalTime>h4{
+  width: 100%;
+}
+.LocalTime>span{
+  width: 100%;
+}
+
+.LocalTime>h4:first-of-type{
+  font-size: 160%;
+}
+.LocalTime>h4:last-of-type{
+  font-size: 120%;
+  text-align: right;
+  text-transform: capitalize;
+}
+.LocalTime>span:first-of-type{
+  font-size: 80%;
+  text-align: right;
+  text-transform: capitalize;
+}
+.LocalTime>span:last-of-type{
+  font-size: 130%;
+}
+.Weather{
+  /* background-color: rgb(151, 177, 151); */
+}
+.wetherMainBlock{
+  margin-bottom: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 120%;
+}
+.wetherIcon{
+  border: 0.5px solid rgba(0, 0, 0, 0.15);
+}
+.wetherAdditionalBlock{
+  font-size: 80%;
+}
+.wetherAdditionalBlock>div>span:first-of-type{
+  text-transform: capitalize;
+}
+.CurrencyExchangeRates{
+  /* background-color: rgb(197, 197, 212); */
+}

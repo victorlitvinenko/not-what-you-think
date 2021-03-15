@@ -1,5 +1,5 @@
 import { Button, Row, Col } from 'react-bootstrap';
-import Gallery from 'react-grid-gallery';
+// import Gallery from 'react-grid-gallery';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
@@ -10,6 +10,7 @@ import { Country as CountryType } from '../../stores/country';
 import Loader from '../Loader/Loader';
 import UiStore from '../../stores/ui-store';
 import translations from '../../libs/translations';
+import Widgets from '../Helpers/Widgets/Widgets';
 
 import './country.scss';
 
@@ -108,8 +109,8 @@ const Country: React.FC<Props> = ({ country }) => {
             <Row>
               <Col>
                 <div className="mt25">
-                  <h5>{t.attractions}</h5>
-                  <Gallery images={images} />
+                  <h5>Attraction</h5>
+                  {/* <Gallery images={images} /> */}
                 </div>
               </Col>
             </Row>
@@ -125,7 +126,7 @@ const Country: React.FC<Props> = ({ country }) => {
           </div>
         </Col>
         <Col className="col-12 col-sm-3">
-          <div className="country_widgets_box">WIDGETS HERE</div>
+          <Widgets timeZone={country?.data?.timeZone} />
         </Col>
       </Row>
     </div>
