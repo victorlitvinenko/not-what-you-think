@@ -7,9 +7,10 @@ import styles from './Widgets.module.css';
 
 type Props = {
   timeZone: Record<string, string> | undefined;
+  capital: string | undefined;
 };
 
-const Widgets: React.FC<Props> = ({ timeZone }) => {
+const Widgets: React.FC<Props> = ({ timeZone, capital }) => {
   const locality = timeZone?.locality || 'Minsk';
   const utc = timeZone?.utc || null;
   // const {locality = 'Minsk', utc =  null} = timeZone;
@@ -34,7 +35,7 @@ const Widgets: React.FC<Props> = ({ timeZone }) => {
 
   return (
     <div className={styles.Widgets}>
-      <LocalTime utc={utc} locality={locality} />
+      <LocalTime utc={utc} locality={locality} capital={capital} />
       {/* <LocalTime utc={null} locality={locality} /> */}
       <Weather getWeather={getWeather} />
       <CurrencyExchangeRates getCurrencies={getCurrencies} />

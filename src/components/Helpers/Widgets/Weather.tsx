@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import UiStore from '../../../stores/ui-store';
+import translations from '../../../libs/translations';
 import styles from './Widgets.module.css';
+
+// const 获取天气 = (网址) => {
+//   const 承诺 = fetch(网址)
+//     .then((回应) => 回应.json())
+//     .then((数据) => 数据);
+// };
 
 interface Wether {
   current: {
@@ -18,6 +26,13 @@ interface Wether {
   location: Record<string | number, unknown>;
 }
 
+const windDirections: Record<string, string> = {
+  W: 'west',
+  E: 'east',
+  S: 'south',
+  N: 'north',
+};
+
 type Props = {
   getWeather: () => Promise<Wether | null>;
 };
@@ -25,6 +40,13 @@ type Props = {
 const Weather: React.FC<Props> = ({ getWeather }) => {
   const requestInterval = 5 * 60 * 60 * 1000;
   const [weather, setWeather] = useState<Wether | null>(null);
+  const t = translations[UiStore.language];
+
+  const getWindDirection = (data: string) =>
+    data
+      .split('')
+      .map((item) => t[windDirections[item]])
+      .join(' - ');
 
   useEffect(() => {
     getWeather().then((response) => {
@@ -56,17 +78,21 @@ const Weather: React.FC<Props> = ({ getWeather }) => {
       </div>
       <div className={styles.wetherAdditionalBlock}>
         <div>
-          <span>wind: </span>
-          <span>{weather?.current?.wind_dir} </span>
-          <span>{weather?.current?.wind_kph} km/h</span>
+          <span>{`${t.wind}: `}</span>
+          <span>{getWindDirection(weather?.current?.wind_dir)} </span>
         </div>
         <div>
-          <span>humidity: </span>
+          <span>{`${t.w_speed}: `}</span>
+          <span>{`${weather?.current?.wind_kph} ${t['km/h']}`}</span>
+        </div>
+        <div>
+          <span>{`${t.humidity}: `}</span>
           <span>{weather?.current?.humidity}%</span>
         </div>
         <div>
-          <span>atm. pressure: </span>
-          <span>{weather?.current?.pressure_mb} mbar</span>
+          <span>{`${t.pressure}: `}</span>
+          {/* <span>{weather?.current?.pressure_mb} mbar</span> */}
+          <span>{`${weather?.current?.pressure_mb} ${t.mbar}`}</span>
         </div>
       </div>
     </div>

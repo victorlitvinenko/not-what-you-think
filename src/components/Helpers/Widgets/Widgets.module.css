@@ -42,9 +42,9 @@
 .LocalTime>span:last-of-type{
   font-size: 130%;
 }
-.Weather{
-  /* background-color: rgb(151, 177, 151); */
-}
+/* .Weather{
+
+} */
 .wetherMainBlock{
   margin-bottom: 20px;
   display: flex;
@@ -62,9 +62,9 @@
 .wetherAdditionalBlock>div>span:first-of-type{
   text-transform: capitalize;
 }
-.CurrencyExchangeRates{
-  /* background-color: rgb(197, 197, 212); */
-}
+/* .CurrencyExchangeRates{
+
+} */
 
 @media (max-width: 991px) {
   .Widgets {

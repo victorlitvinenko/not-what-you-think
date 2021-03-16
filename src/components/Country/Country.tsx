@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import QierPlayer from 'qier-player';
-// import DateTime from '../Helpers/DateTime';
 import Rate from '../Rate/Rate';
 import Map from '../Helpers/Map';
 import { Country as CountryType } from '../../stores/country';
@@ -33,7 +32,9 @@ const Country: React.FC<Props> = ({ country }) => {
           <div className="country-title-box">
             <div className="country-title-left">
               <h3>{country?.data?.name}</h3>
+              <span>breadcrumbs</span>
             </div>
+            <div className="country-title-center" />
             <div className="country-title-right mb-1">
               <Link to="/">
                 <Button>Back</Button>
@@ -106,8 +107,11 @@ const Country: React.FC<Props> = ({ country }) => {
             </Row>
           </div>
         </Col>
-        <Col className="col-12 col-lg-3">
-          <Widgets timeZone={country?.data?.timeZone} />
+        <Col className="col-12 col-sm-3">
+          <Widgets
+            timeZone={country?.data?.timeZone}
+            capital={country?.data?.capital}
+          />
         </Col>
       </Row>
       <Row>
