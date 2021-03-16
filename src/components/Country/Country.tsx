@@ -99,7 +99,8 @@ const Country: React.FC<Props> = ({ country, id }) => {
                           <span className="ml5">{t.rating}</span>
                           <Rate
                             onChange={() => {}}
-                            value={stars / feedbacks.length}
+                            value={stars / feedbacks.length || 0}
+                            disabled
                           />
                         </div>
                       </Col>

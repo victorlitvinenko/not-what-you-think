@@ -5,9 +5,17 @@ import Star from './Star';
 
 import './rate.scss';
 
-type Props = { value: number; onChange: (id: number) => void };
+type Props = {
+  value: number;
+  onChange: (id: number) => void;
+  disabled?: boolean;
+};
 
-const Rate: React.FC<Props> = ({ value, onChange = () => {} }) => {
+const Rate: React.FC<Props> = ({
+  value = 0,
+  onChange = () => {},
+  disabled = false,
+}) => {
   const [hoveredItem, setHoveredItem] = useState(0);
 
   return (
@@ -17,9 +25,10 @@ const Rate: React.FC<Props> = ({ value, onChange = () => {} }) => {
         .map((index) => (
           // eslint-disable-next-line jsx-a11y/interactive-supports-focus,jsx-a11y/click-events-have-key-events
           <div
-            onMouseEnter={() => setHoveredItem(index)}
-            onMouseLeave={() => setHoveredItem(0)}
-            onClick={() => onChange(index)}
+            onMouseEnter={() => !disabled && setHoveredItem(index)}
+            onMouseLeave={() => !disabled && setHoveredItem(0)}
+            onClick={() => !disabled && onChange(index)}
+            className={cn({ disabled })}
             role="button"
             key={index}
           >
@@ -33,6 +42,9 @@ const Rate: React.FC<Props> = ({ value, onChange = () => {} }) => {
                 },
                 {
                   'rate__star--active': index === hoveredItem,
+                },
+                {
+                  'rate__star--invisible': disabled && index > value,
                 }
               )}
             />

@@ -9,6 +9,10 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+
+    &.disabled {
+      cursor: default;
+    }
   }
 
   &__star {
@@ -23,6 +27,10 @@
 
     &--active {
       transform: scale(1.2);
+    }
+
+    &--invisible {
+      opacity: 0;
     }
   }
 }
