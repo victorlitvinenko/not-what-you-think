@@ -124,6 +124,7 @@ const Country: React.FC<Props> = ({ country, id }) => {
           </div>
         </Col>
         <Col className="col-12 col-sm-3">
+          <div className="widgets__background" />
           <Widgets
             timeZone={country?.data?.timeZone}
             capital={country?.data?.capital}
