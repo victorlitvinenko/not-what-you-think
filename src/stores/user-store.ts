@@ -1,9 +1,15 @@
 import { makeAutoObservable } from 'mobx';
+import jwt from 'jsonwebtoken';
 import request from '../api/api';
 import UiStore from './ui-store';
 
 class UserStore {
   token = '';
+
+  userInfo: Record<string, string> = {
+    login: '',
+    name: '',
+  };
 
   profile: Record<string, string> = {};
 
@@ -26,31 +32,19 @@ class UserStore {
           })
         )?.token;
         if (token) {
+          this.userInfo = {
+            login: jwt.decode(token).login,
+            name: jwt.decode(token).name,
+          };
           if (remember) {
             localStorage.setItem('token', token);
+            localStorage.setItem('user', JSON.stringify(this.userInfo));
           } else {
             sessionStorage.setItem('token', token);
+            sessionStorage.setItem('user', JSON.stringify(this.userInfo));
           }
         }
         window.location.reload();
-      }
-      if (token) {
-        this.token = token;
-        try {
-          const profile = await request<Record<string, string>>(
-            '/users/profile',
-            'GET',
-            null,
-            {
-              Authorization: `Bearer ${token}`,
-            }
-          );
-          if (profile) {
-            this.profile = profile;
-          }
-        } catch (error) {
-          UiStore.showNotification('Cannot get profile');
-        }
       }
     } catch (error) {
       UiStore.showNotification('Wrong login or password');

@@ -2,6 +2,7 @@ import { observer } from 'mobx-react-lite';
 import { Button, Form, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
+import { User } from 'react-feather';
 import InputSearch from '../InputSearch/InputSearch';
 import UiStore from '../../stores/ui-store';
 import UserStore from '../../stores/user-store';
@@ -10,6 +11,10 @@ import Logo from '../../media/images/logo.svg';
 import './header.scss';
 
 const Header: React.FC = () => {
+  const user = localStorage.getItem('user') || sessionStorage.getItem('user');
+  const name = user ? JSON.parse(user).name : '';
+  const login = user ? JSON.parse(user).login : '';
+
   return (
     <Navbar
       className="justify-content-between align-items-center header"
@@ -37,8 +42,10 @@ const Header: React.FC = () => {
         </Form.Group>
       </Form>
       <div className="block">
-        <img src="" alt="img user" />
-        <a href="https://png.icons8.com/firewall/color">Name(Login)</a>
+        <p className="mb-0">
+          {`${name} (${login})`}
+          <User className="ml-1" color="blue" size={16} />
+        </p>
         <Button onClick={() => UserStore.logout()} variant="primary">
           Sign out
         </Button>
