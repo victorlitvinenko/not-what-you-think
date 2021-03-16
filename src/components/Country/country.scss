@@ -44,6 +44,25 @@
   margin: 20px 0;
   height: 500px;
   box-shadow: #00224662 5px 5px 20px 5px;
+  position: relative;
+  &-fullscreen {
+    position: absolute;
+    z-index: 2000;
+    margin-left: 10px;
+    width: 34px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 70px;
+    background-color: #fff;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-top: 1px solid #ccc;
+    cursor: pointer;
+    background-clip: padding-box;
+  }
 }
 
 .country_widgets_box {

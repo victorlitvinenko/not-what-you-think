@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { useEffect, useState } from 'react';
 import { Button, Form, Media } from 'react-bootstrap';
 import request from '../../api/api';
@@ -60,7 +61,7 @@ const Feedback: React.FC<PropsType> = ({ t, data, id }) => {
         <ul className="list-unstyled">
           {feedbacks.map((item) => {
             return (
-              <Media as="li">
+              <Media key={item._id} as="li">
                 <Media.Body>
                   <h5>
                     {item.userName} <small>stars: {item.stars}</small>

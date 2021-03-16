@@ -1,9 +1,11 @@
+import { useRef, useState } from 'react';
 import { Button, Row, Col } from 'react-bootstrap';
 import Gallery from 'react-grid-gallery';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import QierPlayer from 'qier-player';
+import { Maximize } from 'react-feather';
 import Rate from '../Rate/Rate';
 import Map from '../Helpers/Map';
 import { Country as CountryType } from '../../stores/country';
@@ -21,6 +23,8 @@ type Props = {
 };
 
 const Country: React.FC<Props> = ({ country, id }) => {
+  const [fullscreen, setFullscreen] = useState(false);
+  const mapRef = useRef<HTMLDivElement>(null);
   const t = translations[UiStore.language];
   const lat: number = country?.data?.capitalLat || 0;
   const lon: number = country?.data?.capitalLon || 0;
@@ -37,6 +41,14 @@ const Country: React.FC<Props> = ({ country, id }) => {
     thumbnailWidth: 200,
     thumbnailHeight: 100,
   }));
+
+  const toggleFullscreen = () => {
+    setFullscreen(!fullscreen);
+    if (mapRef && mapRef.current) {
+      if (!fullscreen) mapRef.current.requestFullscreen();
+      else if (document.fullscreenElement) document?.exitFullscreen();
+    }
+  };
 
   return country?.isLoading ? (
     <Loader />
@@ -134,7 +146,16 @@ const Country: React.FC<Props> = ({ country, id }) => {
       </Row>
       <Row>
         <Col>
-          <div className="map_box" id="mapbox/streets-v11">
+          <div ref={mapRef} className="map_box" id="mapbox/streets-v11">
+            <div
+              onKeyDown={() => null}
+              tabIndex={0}
+              role="button"
+              onClick={toggleFullscreen}
+              className="map_box-fullscreen"
+            >
+              <Maximize />
+            </div>
             <Map capitalLat={lat} capitalLon={lon} />
           </div>
         </Col>
