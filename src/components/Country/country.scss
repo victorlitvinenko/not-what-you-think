@@ -42,9 +42,8 @@
 
 .map_box {
   margin: 20px 0;
-  padding: 20px;
-  border: 1px solid rgb(192, 191, 191);
   height: 500px;
+  box-shadow: #00224662 5px 5px 20px 5px;
 }
 
 .country_widgets_box {
@@ -93,5 +92,21 @@
       transform: translateY(2px);
       box-shadow: rgba(0, 34, 70, 0.5) 5px 5px 20px 5px !important;
     }
+  }
+}
+.widgets__background {
+  background: black;
+  width: 255px;
+    height: 100%;
+    position: absolute;
+    opacity: .1;
+    border-radius: 5px;
+}
+.Widgets_Widgets__15j5f {
+  color: white;
+}
+svg:hover {
+  & path {
+    fill: lightgrey;
   }
 }
