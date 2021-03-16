@@ -13,15 +13,24 @@ import translations from '../../libs/translations';
 import Widgets from '../Helpers/Widgets/Widgets';
 
 import './country.scss';
+import Feedback from '../Feedback/Feedback';
 
 type Props = {
   country: CountryType;
+  id: string;
 };
 
-const Country: React.FC<Props> = ({ country }) => {
+const Country: React.FC<Props> = ({ country, id }) => {
   const t = translations[UiStore.language];
   const lat: number = country?.data?.capitalLat || 0;
   const lon: number = country?.data?.capitalLon || 0;
+  const feedbacks: Record<string, string>[] = country?.data?.feedback || [
+    { text: '' },
+  ];
+  let stars = 0;
+  feedbacks.forEach((item) => {
+    stars += +item.stars;
+  });
 
   const modefiedAttractions = country?.data?.attractions.map((item) => ({
     ...item,
@@ -90,7 +99,7 @@ const Country: React.FC<Props> = ({ country }) => {
                           <span className="ml5">{t.rating}</span>
                           <Rate
                             onChange={() => {}}
-                            value={Number(country?.data?.stars)}
+                            value={stars / feedbacks.length}
                           />
                         </div>
                       </Col>
@@ -126,6 +135,11 @@ const Country: React.FC<Props> = ({ country }) => {
           <div className="map_box" id="mapbox/streets-v11">
             <Map capitalLat={lat} capitalLon={lon} />
           </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Feedback id={id} t={t} data={feedbacks} />
         </Col>
       </Row>
     </div>
