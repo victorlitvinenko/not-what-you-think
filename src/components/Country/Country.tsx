@@ -23,6 +23,12 @@ const Country: React.FC<Props> = ({ country }) => {
   const lat: number = country?.data?.capitalLat || 0;
   const lon: number = country?.data?.capitalLon || 0;
 
+  const modefiedAttractions = country?.data?.attractions.map((item) => ({
+    ...item,
+    thumbnailWidth: 200,
+    thumbnailHeight: 100,
+  }));
+
   return country?.isLoading ? (
     <Loader />
   ) : (
@@ -100,7 +106,8 @@ const Country: React.FC<Props> = ({ country }) => {
                   <h5>Attraction</h5>
                   <Gallery
                     backdropClosesModal
-                    images={country?.data?.attractions || []}
+                    thumbnailWidth={100}
+                    images={modefiedAttractions || []}
                   />
                 </div>
               </Col>
