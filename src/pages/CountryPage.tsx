@@ -13,7 +13,7 @@ const CountryPage: React.FC = () => {
 
   return (
     <div className="j5">
-      <Country country={country} />
+      <Country id={id} country={country} />
     </div>
   );
 };

@@ -10,7 +10,7 @@ export type CountryType = {
   image: string;
   name: string;
   stars: string;
-  feedback: Record<string, unknown>[];
+  feedback: Record<string, string>[];
   timeZone: Record<string, string> | undefined;
   video: string;
   attractions: Record<string, string>[];

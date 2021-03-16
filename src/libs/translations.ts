@@ -35,6 +35,8 @@ const translations: Record<string, Record<string, string>> = {
     south: 'south',
     west: 'west',
     east: 'east',
+    feedback: 'Feedbacks',
+    newFeedback: 'Add feedback',
   },
   ru: {
     searchCountry: 'Поиск страны',
@@ -72,6 +74,8 @@ const translations: Record<string, Record<string, string>> = {
     south: 'юг',
     west: 'запад',
     east: 'восток',
+    feedback: 'Отзывы',
+    newFeedback: 'Добавить отзыв',
   },
   cn: {
     searchCountry: '国家搜索',
@@ -109,6 +113,8 @@ const translations: Record<string, Record<string, string>> = {
     south: '南',
     west: '西',
     east: '东',
+    feedback: '评论',
+    newFeedback: '添加评论',
   },
 };
 
