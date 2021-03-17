@@ -4,7 +4,7 @@ import styles from './Widgets.module.css';
 
 type ModalProps = {
   value: number;
-  changeHandler: () => void;
+  changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   changeEditModeHandler: (value: boolean) => void;
 };
 
@@ -16,29 +16,26 @@ const InputModal: React.FC<ModalProps> = ({
   const modalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const blurHandler = useCallback(
-    (e: React.MouseEvent<HTMLDocument>) => {
-      if (
-        modalRef &&
-        modalRef.current &&
-        !modalRef.current.contains(e.target)
-      ) {
-        changeEditModeHandler(false);
-      }
-    },
-    [changeEditModeHandler]
-  );
+  const blurHandler = (e: Event) => {
+    if (
+      e.target instanceof HTMLElement &&
+      modalRef.current &&
+      modalRef.current.contains(e.target)
+    ) {
+      changeEditModeHandler(false);
+    }
+  };
 
   const toggleListeners = useCallback(
     (isActivate: boolean) => {
       if (inputRef && inputRef.current) {
         if (isActivate) {
-          document.addEventListener('click', blurHandler);
+          document.addEventListener('click', () => blurHandler);
           inputRef.current.addEventListener('keydown', (e: KeyboardEvent) => {
             if (e.key === 'Enter') changeEditModeHandler(false);
           });
         } else {
-          document.removeEventListener('click', blurHandler);
+          document.removeEventListener('click', () => blurHandler);
           inputRef.current.removeEventListener(
             'keydown',
             (e: KeyboardEvent) => {
@@ -84,6 +81,10 @@ const ExchangeField: React.FC<Props> = ({ currency, quantity, onChange }) => {
     setIsEdit(newIsEdit);
   };
 
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(parseFloat(e.target.value));
+  };
+
   useEffect(() => {
     if (!isEdit) onChange(currency, value);
   }, [isEdit]);
@@ -91,7 +92,7 @@ const ExchangeField: React.FC<Props> = ({ currency, quantity, onChange }) => {
   return isEdit ? (
     <InputModal
       value={value}
-      changeHandler={(e: Event) => setValue(parseFloat(e.target.value))}
+      changeHandler={changeHandler}
       changeEditModeHandler={changeEditModeHandler}
     />
   ) : (

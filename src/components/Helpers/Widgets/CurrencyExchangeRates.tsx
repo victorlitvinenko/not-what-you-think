@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import ExchangeField from './ExchangeField';
-import styles from './Widgets.module.css';
+// import styles from './Widgets.module.css';
 
 interface Currencies {
   base: string;
@@ -18,12 +18,6 @@ const CurrencyExchangeRates: React.FC<Props> = ({ getRates }) => {
 
   const [rates, setRates] = useState<Currencies | null>(null);
   const [quantities, setQuantities] = useState<Quantities>({});
-  // const [quantities, setQuantities] = useState<Quantities>({
-  //   JPY: 1,
-  //   EUR: 0.007673,
-  //   RUB: 0.66748,
-  //   USD: 0.009159,
-  // });
 
   const currencies: string[] = rates
     ? [rates.base, ...Object.keys(rates.rates)]
@@ -59,30 +53,10 @@ const CurrencyExchangeRates: React.FC<Props> = ({ getRates }) => {
     setCurrenciesQuantities(currencies[0], quantities[currencies[0]]);
   }, [rates]);
 
-  console.log(rates);
-  console.log(currencies);
-  console.log(quantities);
+  // console.log(rates);
+  // console.log(currencies);
+  // console.log(quantities);
 
-  // return (
-  //   <div className={styles.CurrencyExchangeRates}>
-  //     <div>
-  //       <span>{quantities[currencies[0]]}</span>
-  //       <span>{currencies[0]}</span>
-  //     </div>
-  //     <div>
-  //       <span>{currencies[1]}</span>
-  //       <span>{quantities[currencies[1]]}</span>
-  //     </div>
-  //     <div>
-  //       <span>{currencies[2]}</span>
-  //       <span>{quantities[currencies[2]]}</span>
-  //     </div>
-  //     <div>
-  //       <span>{currencies[3]}</span>
-  //       <span>{quantities[currencies[3]]}</span>
-  //     </div>
-  //   </div>
-  // );
   return (
     <div>
       <ExchangeField
