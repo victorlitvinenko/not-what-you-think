@@ -1,5 +1,3 @@
-/* eslint-disable prefer-object-spread */
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-underscore-dangle */
 import { useEffect, useRef, useState } from 'react';
 import { Form, FormControl } from 'react-bootstrap';
