@@ -5,6 +5,7 @@
     background: url('./assets/images/bg.png') no-repeat right top;
     background-size: cover;
 }
+.container-lg,
 .container {
     flex-grow: 1;
     padding-bottom: 25px;
@@ -103,3 +104,4 @@ body {
         transform: scale(0.8);
     }
 }
+

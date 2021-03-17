@@ -16,7 +16,7 @@ const App: React.FC = () => (
     {UserStore.token ? (
       <>
         <Header />
-        <main className="container">
+        <main className="container-lg">
           <Switch>
             <Routes />
           </Switch>

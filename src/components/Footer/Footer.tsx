@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
           href="https://github.com/skypneuma"
           className="rollover__vs"
         >
-          Vyacheslav
+          Viacheslav
         </a>
         <a
           target="_blank"
@@ -60,9 +60,8 @@ const Footer: React.FC = () => {
         >
           Sergey
         </a>
-        <div> in 2k21</div>
       </div>
-      <div>
+      <div className="footer__year_box">
         <a target="_blank" rel="noreferrer" href="https://rs.school/js/">
           <img
             width="55"
@@ -71,6 +70,7 @@ const Footer: React.FC = () => {
             style={{ marginLeft: '25px', marginTop: '5px' }}
           />
         </a>
+        <div className="footer__year"> in 2k21</div>
       </div>
     </footer>
   );

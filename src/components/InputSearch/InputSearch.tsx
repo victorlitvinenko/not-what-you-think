@@ -27,7 +27,7 @@ const InputSearch: React.FC = () => {
   }, []);
 
   return (
-    <Form.Group style={{ position: 'relative' }} className="ml-3">
+    <Form.Group style={{ position: 'relative' }}>
       <FormControl
         type="text"
         placeholder={t.searchCountry}
