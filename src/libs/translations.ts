@@ -39,6 +39,7 @@ const translations: Record<string, Record<string, string>> = {
     east: 'east',
     feedback: 'Feedbacks',
     newFeedback: 'Add feedback',
+    CE_header: 'National currency exchange rates',
   },
   ru: {
     searchCountry: 'Поиск страны',
@@ -80,6 +81,7 @@ const translations: Record<string, Record<string, string>> = {
     east: 'восток',
     feedback: 'Отзывы',
     newFeedback: 'Добавить отзыв',
+    CE_header: 'Курсы обмена национальной валюты',
   },
   cn: {
     searchCountry: '国家搜索',
@@ -121,6 +123,7 @@ const translations: Record<string, Record<string, string>> = {
     east: '东',
     feedback: '评论',
     newFeedback: '添加评论',
+    CE_header: '国家货币汇率',
   },
 };
 

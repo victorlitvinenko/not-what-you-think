@@ -62,9 +62,70 @@
 .wetherAdditionalBlock>div>span:first-of-type{
   text-transform: capitalize;
 }
-/* .CurrencyExchangeRates{
+.CurrencyExchangeRates{
+  font-size: 18px;
+}
+.exchangeRatesHeader{
+  font-size: 110%;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-} */
+.ExchangeField{
+  position: relative;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 90%;
+}
+.ExchangeField:first-of-type{
+  flex-flow: row-reverse nowrap;
+  margin-bottom: 30px;
+}
+.ExchangeField>span:first-of-type{
+  padding: 3px 5px 3px 0;
+  margin-right: 10px;
+}
+.ExchangeField>span:last-of-type{
+  width: 100%;
+  padding: 3px 5px;
+  border-radius: 5px;
+  background-color: white;
+  text-align: right;
+}
+.ExchangeField:first-of-type>span:first-of-type{
+  margin-right: 0;
+  margin-left: 10px;
+}
+.ExchangeField:first-of-type>span:last-of-type{
+  text-align: left;
+}
+
+
+.inputModal{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.input{
+  width: 80%;
+  height: 80%;
+  padding: 3px 8px;
+  border-radius: 5px;
+  line-height: 100%;
+}
+
 
 @media (max-width: 991px) {
   .Widgets {
