@@ -20,6 +20,7 @@ const CurrencyExchangeRates: React.FC<Props> = ({ getRates }) => {
   const requestInterval = 5 * 60 * 60 * 1000;
   const t = translations[UiStore.language];
   const ROUNDING = -4;
+  const CUR_DEFAULT_QUANTITY = MathRound10(1, 0);
 
   const [rates, setRates] = useState<Currencies | null>(null);
   const [quantities, setQuantities] = useState<Quantities | null>(null);
@@ -67,8 +68,9 @@ const CurrencyExchangeRates: React.FC<Props> = ({ getRates }) => {
   useEffect(() => {
     setCurrenciesQuantities(
       currencies[0],
-      !quantities ? 1 : quantities[currencies[0]]
+      !quantities ? CUR_DEFAULT_QUANTITY : quantities[currencies[0]]
     );
+    return () => setCurrenciesQuantities(currencies[0], 0);
   }, [rates]);
 
   return currencies && quantities ? (
