@@ -1,3 +1,5 @@
+/* eslint-disable prefer-object-spread */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-underscore-dangle */
 import { useEffect, useRef, useState } from 'react';
 import { Form, FormControl } from 'react-bootstrap';
@@ -14,18 +16,12 @@ import styles from './inputsearch.module.scss';
 
 const InputSearch: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState<CountryType[]>([]);
   const [outClicked, setOutClicked] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const t = translations[UiStore.language];
 
   useEffect(() => {
-    const results: CountryType[] = CountryStore.countries.filter(
-      (country) =>
-        country.name.toLowerCase().includes(searchTerm) ||
-        country.capital.toLowerCase().includes(searchTerm)
-    );
-    setSearchResults(results);
+    CountryStore.filterCountries(searchTerm);
   }, [searchTerm]);
 
   useEffect(() => {
@@ -51,14 +47,15 @@ const InputSearch: React.FC = () => {
       >
         <XCircle color="#333" size={16} />
       </span>
-      {searchTerm.length && !outClicked ? (
+      {searchTerm && !outClicked ? (
         <div className={styles.inputsearch} style={{ position: 'absolute' }}>
-          {searchResults.map((item: CountryType) => {
+          {CountryStore.countries.map((item: CountryType) => {
             return (
               <Link
                 onClick={() => setOutClicked(true)}
                 key={item._id}
                 to={`/country/${item._id}`}
+                className={item.className}
               >
                 <div>{item.name}</div>
               </Link>
