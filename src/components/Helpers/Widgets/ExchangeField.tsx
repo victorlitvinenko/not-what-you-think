@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styles from './Widgets.module.css';
 
 type ModalProps = {
   value: number;
-  changeHandler: (e: Event) => void;
+  changeHandler: () => void;
   changeEditModeHandler: (value: boolean) => void;
 };
 
@@ -12,28 +13,43 @@ const InputModal: React.FC<ModalProps> = ({
   changeHandler,
   changeEditModeHandler,
 }) => {
-  const modalRef = useRef();
-  const inputRef = useRef();
+  const modalRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const blurHandler = (e: MouseEvent) => {
-    if (!modalRef.current.contains(e.target)) {
-      changeEditModeHandler(false);
-    }
-  };
+  const blurHandler = useCallback(
+    (e: React.MouseEvent<HTMLDocument>) => {
+      if (
+        modalRef &&
+        modalRef.current &&
+        !modalRef.current.contains(e.target)
+      ) {
+        changeEditModeHandler(false);
+      }
+    },
+    [changeEditModeHandler]
+  );
 
-  const toggleListeners = (isActivate: boolean) => {
-    if (isActivate) {
-      document.addEventListener('click', blurHandler);
-      inputRef.current.addEventListener('keydown', (e: KeyboardEvent) => {
-        if (e.key === 'Enter') changeEditModeHandler(false);
-      });
-    } else {
-      document.removeEventListener('click', blurHandler);
-      inputRef.current.removeEventListener('keydown', (e: KeyboardEvent) => {
-        if (e.key === 'Enter') changeEditModeHandler(false);
-      });
-    }
-  };
+  const toggleListeners = useCallback(
+    (isActivate: boolean) => {
+      if (inputRef && inputRef.current) {
+        if (isActivate) {
+          document.addEventListener('click', blurHandler);
+          inputRef.current.addEventListener('keydown', (e: KeyboardEvent) => {
+            if (e.key === 'Enter') changeEditModeHandler(false);
+          });
+        } else {
+          document.removeEventListener('click', blurHandler);
+          inputRef.current.removeEventListener(
+            'keydown',
+            (e: KeyboardEvent) => {
+              if (e.key === 'Enter') changeEditModeHandler(false);
+            }
+          );
+        }
+      }
+    },
+    [blurHandler, changeEditModeHandler]
+  );
 
   useEffect(() => {
     toggleListeners(true);

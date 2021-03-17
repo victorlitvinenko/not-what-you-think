@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import ExchangeField from './ExchangeField';
 import styles from './Widgets.module.css';
