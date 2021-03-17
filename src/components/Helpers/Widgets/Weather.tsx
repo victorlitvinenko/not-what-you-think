@@ -70,10 +70,10 @@ const Weather: React.FC<Props> = ({ getWeather }) => {
           className={styles.wetherIcon}
         />
         <div className={styles.temperatureBlock}>
-          <span>{`${weather?.current?.temp_c}`}</span>
-          <span> &#8451; / </span>
-          <span>{`${weather?.current?.temp_f}`}</span>
-          <span> &#8457;</span>
+          <span>{`${weather?.current?.temp_c}`}&#160;&#8451;</span>
+          <span> / </span>
+          <span>{`${weather?.current?.temp_f}`}&#160;&#8457;</span>
+          <span> </span>
         </div>
       </div>
       <div className={styles.wetherAdditionalBlock}>

@@ -1,10 +1,11 @@
 .Widgets {
+  box-sizing: border-box;
   position: sticky;
   top: 0;
   width: 100%;
   height: auto;
-  /* padding: 20px 0; */
   font-family: inherit;
+  font-size: 18px;
 }
 .Widgets>div{
   padding: 10px 20px;
@@ -42,9 +43,6 @@
 .LocalTime>span:last-of-type{
   font-size: 130%;
 }
-/* .Weather{
-
-} */
 .wetherMainBlock{
   margin-bottom: 20px;
   display: flex;
@@ -56,14 +54,14 @@
 .wetherIcon{
   border: 0.5px solid rgba(0, 0, 0, 0.15);
 }
+.temperatureBlock>span{
+  word-break: normal;
+}
 .wetherAdditionalBlock{
   font-size: 80%;
 }
 .wetherAdditionalBlock>div>span:first-of-type{
   text-transform: capitalize;
-}
-.CurrencyExchangeRates{
-  font-size: 18px;
 }
 .exchangeRatesHeader{
   font-size: 110%;
@@ -104,8 +102,6 @@
 .ExchangeField:first-of-type>span:last-of-type{
   text-align: left;
 }
-
-
 .inputModal{
   position: absolute;
   top: 0;
@@ -124,16 +120,162 @@
   padding: 3px 8px;
   border-radius: 5px;
   line-height: 100%;
+  color: black;
 }
 
-
-@media (max-width: 991px) {
+@media (max-width: 992px) {
   .Widgets {
     position: static;
-    margin-top: 25px;
+    margin-bottom: 15px;
+    /* padding: 0 15px; */
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: stretch;
+  }
+  .Widgets>div{
+    box-sizing: border-box;
+    width: 30%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+  .Widgets>div:last-of-type{
+    border-bottom: none;
+  }
+}
+@media (max-width: 800px) {
+  .Widgets {
+    font-size: 16px;
+  }
+  .LocalTime>h4{
+    width: 90%;
+  }
+  .LocalTime>span{
+    width: 90%;
+  }
+
+  .LocalTime>h4:first-of-type{
+    font-size: 140%;
+  }
+  .LocalTime>h4:last-of-type{
+    font-size: 100%;
+  }
+  .LocalTime>span:first-of-type{
+    font-size: 80%;
+  }
+  .LocalTime>span:last-of-type{
+    font-size: 110%;
+  }
+  .wetherIcon{
+    margin-right: 10px;
+  }
+  .temperatureBlock{
+    width: 100%;
+    font-size: 90%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .temperatureBlock>span:nth-of-type(2){
+    display: none;
+  }
+  .ExchangeField{
+    height: 25px;
+    font-size: 70%;
+  }
+  .ExchangeField:first-of-type{
+    flex-flow: row-reverse nowrap;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .Widgets {
+    font-size: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .Widgets>div{
+    width: 47%;
+    margin-right: 1.5%;
+    margin-bottom: 15px;
+  }
+  .Widgets>div:last-of-type{
+    margin-bottom: 0;
+  }
+
+  .LocalTime>h4{
+    width: 80%;
+  }
+  .LocalTime>span{
+    width: 80%;
+  }
+  .LocalTime>h4:first-of-type{
+    font-size: 120%;
+  }
+  .LocalTime>h4:last-of-type{
+    font-size: 90%;
+  }
+  .LocalTime>span:first-of-type{
+    font-size: 70%;
+  }
+  .LocalTime>span:last-of-type{
+    font-size: 100%;
+  }
+  .wetherIcon{
+    margin-right: 10px;
+  }
+  .temperatureBlock{
+    width: 100%;
+    font-size: 90%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .temperatureBlock>span:nth-of-type(2){
+    display: none;
+  }
+  .ExchangeField{
+    height: 25px;
+    padding: 3px 10px;
+  }
+  .input{
+    box-sizing: border-box;
+    width: 95%;
+  }
+}
+
+@media (max-width: 380px) {
+  .Widgets {
+    font-size: 12px;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .Widgets>div{
+    width: 100%;
+    margin-right: 0;
+  }
+  .Weather{
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  .wetherMainBlock{
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+  .ExchangeField{
     align-items: center;
+  }
+  .ExchangeField>span:first-of-type{
+    font-size: 150%;
+  }
+  .ExchangeField>span:last-of-type{
+    width: 50%;
   }
 }
