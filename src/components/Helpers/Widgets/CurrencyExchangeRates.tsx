@@ -73,7 +73,6 @@ const CurrencyExchangeRates: React.FC<Props> = ({ getRates }) => {
     return () => setCurrenciesQuantities(currencies[0], 0);
   }, [rates]);
 
-  console.log(rates);
   return currencies && quantities ? (
     <div className={styles.CurrencyExchangeRates}>
       <h4 className={styles.exchangeRatesHeader}>{t.CE_header}</h4>
