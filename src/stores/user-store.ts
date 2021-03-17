@@ -18,14 +18,18 @@ class UserStore {
   constructor() {
     this.token =
       localStorage.getItem('token') || sessionStorage.getItem('token') || '';
+    if (this.token) {
+      this.userInfo = {
+        login: jwt.decode(this.token).login,
+        name: jwt.decode(this.token).name,
+      };
+    }
     makeAutoObservable(this);
   }
 
   async login(login: string, password: string, remember = true) {
     try {
       this.isLoading = true;
-      // let token: string =
-      //   localStorage.getItem('token') || sessionStorage.getItem('token') || '';
       if (!this.token && login && password) {
         this.token = (
           await request<Record<string, string>>('login', 'POST', {
@@ -34,16 +38,10 @@ class UserStore {
           })
         )?.token;
         if (this.token) {
-          this.userInfo = {
-            login: jwt.decode(this.token).login,
-            name: jwt.decode(this.token).name,
-          };
           if (remember) {
             localStorage.setItem('token', this.token);
-            localStorage.setItem('user', JSON.stringify(this.userInfo));
           } else {
             sessionStorage.setItem('token', this.token);
-            sessionStorage.setItem('user', JSON.stringify(this.userInfo));
           }
         }
       }
