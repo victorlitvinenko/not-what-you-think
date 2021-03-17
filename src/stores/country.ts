@@ -17,6 +17,7 @@ export type CountryType = {
   capitalLon: number;
   capitalLat: number;
   className: string;
+  currency: string;
 };
 
 export class Country {

@@ -140,6 +140,7 @@ const Country: React.FC<Props> = ({ country, id }) => {
           <Widgets
             timeZone={country?.data?.timeZone}
             capital={country?.data?.capital}
+            currency={country?.data?.currency}
           />
         </Col>
       </Row>

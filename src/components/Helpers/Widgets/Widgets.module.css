@@ -62,9 +62,32 @@
 .wetherAdditionalBlock>div>span:first-of-type{
   text-transform: capitalize;
 }
-/* .CurrencyExchangeRates{
+.CurrencyExchangeRates{
 
-} */
+}
+
+
+
+.inputModal{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.input{
+  width: 80%;
+  height: 80%;
+  padding: 3px 8px;
+  border-radius: 5px;
+  line-height: 100%;
+}
+
 
 @media (max-width: 991px) {
   .Widgets {
