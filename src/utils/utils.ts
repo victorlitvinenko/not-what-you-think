@@ -17,5 +17,6 @@ const decimalAdjust = (value: number, exp: number) => {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export const MathRound10 = (value: number, exp: number) =>
-  decimalAdjust(value, exp);
+export function MathRound10(value: number, exp: number): number {
+  return decimalAdjust(value, exp);
+}

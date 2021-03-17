@@ -80,7 +80,7 @@ const ExchangeField: React.FC<Props> = ({ currency, quantity, onChange }) => {
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [value, setValue] = useState<number>(quantity);
 
-  const clickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+  const clickHandler = () => {
     setIsEdit(true);
   };
 
