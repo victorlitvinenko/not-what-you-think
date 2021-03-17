@@ -59,7 +59,6 @@ const Country: React.FC<Props> = ({ country, id }) => {
           <div className="country-title-box">
             <div className="country-title-left">
               <h3>{country?.data?.name}</h3>
-              <span>breadcrumbs</span>
             </div>
             <div className="country-title-center" />
             <div className="country-title-right mb-1">

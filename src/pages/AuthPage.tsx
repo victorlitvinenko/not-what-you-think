@@ -1,7 +1,7 @@
-import LogingForm from '../components/AuthForm/LogingForm';
+import LoginForm from '../components/AuthForm/LoginForm';
 
 const AuthPage: React.FC = () => {
-  return <LogingForm />;
+  return <LoginForm />;
 };
 
 export default AuthPage;

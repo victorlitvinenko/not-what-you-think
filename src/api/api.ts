@@ -3,8 +3,7 @@ import UiStore from '../stores/ui-store';
 const logout = () => {
   localStorage.removeItem('token');
   sessionStorage.removeItem('token');
-  // eslint-disable-next-line no-restricted-globals
-  // location.reload();
+  window.location.reload();
 };
 
 const getAccessToken = (): string | null => {

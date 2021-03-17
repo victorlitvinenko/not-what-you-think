@@ -16,35 +16,36 @@ class UserStore {
   isLoading = false;
 
   constructor() {
+    this.token =
+      localStorage.getItem('token') || sessionStorage.getItem('token') || '';
     makeAutoObservable(this);
   }
 
   async login(login: string, password: string, remember = true) {
     try {
       this.isLoading = true;
-      let token: string =
-        localStorage.getItem('token') || sessionStorage.getItem('token') || '';
-      if (!token && login && password) {
-        token = (
+      // let token: string =
+      //   localStorage.getItem('token') || sessionStorage.getItem('token') || '';
+      if (!this.token && login && password) {
+        this.token = (
           await request<Record<string, string>>('login', 'POST', {
             login,
             password,
           })
         )?.token;
-        if (token) {
+        if (this.token) {
           this.userInfo = {
-            login: jwt.decode(token).login,
-            name: jwt.decode(token).name,
+            login: jwt.decode(this.token).login,
+            name: jwt.decode(this.token).name,
           };
           if (remember) {
-            localStorage.setItem('token', token);
+            localStorage.setItem('token', this.token);
             localStorage.setItem('user', JSON.stringify(this.userInfo));
           } else {
-            sessionStorage.setItem('token', token);
+            sessionStorage.setItem('token', this.token);
             sessionStorage.setItem('user', JSON.stringify(this.userInfo));
           }
         }
-        window.location.reload();
       }
     } catch (error) {
       UiStore.showNotification('Wrong login or password');
@@ -65,7 +66,6 @@ class UserStore {
         });
         if (newUser) {
           this.login(login, password);
-          window.location.reload();
         }
       } catch (error) {
         UiStore.showNotification(`User with login: ${login} already exists`);
@@ -80,7 +80,6 @@ class UserStore {
     this.profile = {};
     localStorage.removeItem('token');
     sessionStorage.removeItem('token');
-    window.location.reload();
   }
 }
 
