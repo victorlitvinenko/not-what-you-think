@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import { Button, Form, Navbar } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom';
 
 import { User } from 'react-feather';
 import InputSearch from '../InputSearch/InputSearch';
@@ -11,9 +11,12 @@ import Logo from '../../media/images/logo.svg';
 
 import './header.scss';
 
-const Header: React.FC = () => {
-  const t = translations[UiStore.language];
+type RouterProps = {
+  pathname: string;
+};
 
+const Header: React.FC<RouteComponentProps<RouterProps>> = ({ history }) => {
+  const t = translations[UiStore.language];
   return (
     <Navbar
       className="justify-content-between align-items-center header"
@@ -26,7 +29,7 @@ const Header: React.FC = () => {
         </Navbar.Brand>
       </NavLink>
       <Form inline>
-        <InputSearch />
+        {history.location.pathname !== '/' ? null : <InputSearch />}
         <Form.Group className="ml-3" controlId="exampleForm.SelectCustomSizeSm">
           <Form.Control
             as="select"
@@ -52,4 +55,4 @@ const Header: React.FC = () => {
     </Navbar>
   );
 };
-export default observer(Header);
+export default withRouter(observer(Header));
