@@ -18,7 +18,7 @@ const MainPage: React.FC = () => {
         <Loader />
       ) : (
         <>
-          <div className="df justify-content-between w-100 flex-wrap">
+          <div className="df w-100 flex-wrap">
             {CountryStore.countries.map((country: CountryType) => (
               <Link
                 key={country._id}
