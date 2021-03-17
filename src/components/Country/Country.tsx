@@ -63,7 +63,7 @@ const Country: React.FC<Props> = ({ country, id }) => {
             <div className="country-title-center" />
             <div className="country-title-right mb-1">
               <Link to="/">
-                <Button>Back</Button>
+                <Button>{t.back}</Button>
               </Link>
             </div>
           </div>
