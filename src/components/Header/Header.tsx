@@ -30,7 +30,10 @@ const Header: React.FC<RouteComponentProps<RouterProps>> = ({ history }) => {
       </NavLink>
       <Form inline>
         {history.location.pathname !== '/' ? null : <InputSearch />}
-        <Form.Group className="ml-3" controlId="exampleForm.SelectCustomSizeSm">
+        <Form.Group
+          className="select_language ml-3"
+          controlId="exampleForm.SelectCustomSizeSm"
+        >
           <Form.Control
             as="select"
             custom

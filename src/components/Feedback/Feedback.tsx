@@ -39,7 +39,7 @@ const Feedback: React.FC<PropsType> = ({ t, data, id }) => {
   };
 
   return (
-    <div>
+    <div className={styles.box}>
       <div className="mb-4">
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>{t.feedback}</Form.Label>
@@ -50,7 +50,7 @@ const Feedback: React.FC<PropsType> = ({ t, data, id }) => {
             rows={3}
           />
         </Form.Group>
-        <div className="df align-items-center">
+        <div className="df j46">
           <Button onClick={onSubmit} variant="success">
             {t.newFeedback}
           </Button>
@@ -62,11 +62,20 @@ const Feedback: React.FC<PropsType> = ({ t, data, id }) => {
           {feedbacks.map((item) => {
             return (
               <Media key={item._id} as="li">
-                <Media.Body>
-                  <h5>
-                    {item.userName} <small>stars: {item.stars}</small>
-                  </h5>
-                  <p>{item.text}</p>
+                <Media.Body className={styles.body}>
+                  <div className={styles.background} />
+                  <div className={styles.header}>
+                    <div className={styles.header_background} />
+                    <h5>{item.userName}</h5>
+                    <Rate
+                      onChange={() => {}}
+                      value={Number(item.stars)}
+                      disabled
+                    />
+                  </div>
+                  <div>
+                    <p>{item.text}</p>
+                  </div>
                 </Media.Body>
               </Media>
             );

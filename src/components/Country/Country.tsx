@@ -13,9 +13,9 @@ import Loader from '../Loader/Loader';
 import UiStore from '../../stores/ui-store';
 import translations from '../../libs/translations';
 import Widgets from '../Helpers/Widgets/Widgets';
+import Feedback from '../Feedback/Feedback';
 
 import './country.scss';
-import Feedback from '../Feedback/Feedback';
 
 type Props = {
   country: CountryType;
@@ -63,7 +63,7 @@ const Country: React.FC<Props> = ({ country, id }) => {
             <div className="country-title-center" />
             <div className="country-title-right mb-1">
               <Link to="/">
-                <Button>{t.back}</Button>
+                <Button>Back</Button>
               </Link>
             </div>
           </div>

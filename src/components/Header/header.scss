@@ -27,6 +27,13 @@
     border-radius: 3px;
 }
 
+.select_language {
+  .custom-select:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+  }
+}
+
 @media (max-width: 700px) {
     .navbar {
         flex-direction: column!important;

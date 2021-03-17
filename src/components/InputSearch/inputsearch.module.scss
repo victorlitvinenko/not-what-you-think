@@ -1,24 +1,30 @@
 .inputsearch {
-    position: absolute;
-    top: 40px;
-    background: #fff;
-    z-index: 10;
-    width: 100%;
-    padding: 4px;
-    & a {
-        color: #333;
+  position: absolute;
+  top: 40px;
+  background: #fff;
+  z-index: 10;
+  width: 100%;
+  padding: 4px;
+  & a {
+    color: #333;
+  }
+  & div {
+    &:hover {
+      background: #eee;
     }
-    & div {
-        &:hover {
-            background: #eee;
-        }
-    }
+  }
 }
 
 .clear {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 5px;
-    cursor: pointer;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px;
+  cursor: pointer;
+  svg {
+    &:active {
+      transform: translateY(1px);
+    }
+  }
 }
