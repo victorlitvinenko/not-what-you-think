@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Button, Form, Media } from 'react-bootstrap';
 import request from '../../api/api';
+import UserStore from '../../stores/user-store';
 import Rate from '../Rate/Rate';
 import styles from './feedback.module.scss';
 
@@ -17,8 +18,7 @@ const Feedback: React.FC<PropsType> = ({ t, data, id }) => {
   const [feedbacks, setFeedbacks] = useState<Record<string, string | number>[]>(
     []
   );
-  const user = localStorage.getItem('user') || sessionStorage.getItem('user');
-  const userName = user ? JSON.parse(user).name : '';
+  const userName = UserStore.userInfo.name;
 
   useEffect(() => {
     setFeedbacks(data);

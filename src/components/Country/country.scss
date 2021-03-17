@@ -20,9 +20,9 @@
 }
 
 .controller-container .play-icon {
-  right: 50%;
-  bottom: 40%;
-  transform: translate(50%);
+  right: 50% !important;
+  bottom: 40% !important;
+  transform: translate(50%) !important;
 }
 
 .country-title-left {
@@ -153,8 +153,8 @@
 
 @media (max-width: 767px) {
   .qier-player-container {
-    width: 100%!important;
-    height: 500px!important;
+    width: 100% !important;
+    height: 500px !important;
     margin-bottom: 15px;
   }
 }
@@ -164,6 +164,6 @@
     width: inherit !important;
   }
   .qier-player-container {
-    height: 300px!important;
+    height: 300px !important;
   }
 }
