@@ -137,9 +137,29 @@
     }
   }
 }
+.country-video {
+  display: flex;
+}
+
+@media (max-width: 991px) {
+  .country_data_box {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  .qier-player-container {
+    width: 100%!important;
+    height: 500px!important;
+    margin-bottom: 15px;
+  }
+}
 
 @media (max-width: 500px) {
   .country_card_link .card {
-    width: inherit!important;
+    width: inherit !important;
+  }
+  .qier-player-container {
+    height: 300px!important;
   }
 }

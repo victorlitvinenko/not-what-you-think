@@ -1,41 +1,99 @@
 .header {
-    // background: yellow;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    min-height: 5vh;
-    align-items: center;
-    border-bottom: 1px solid #a0a0a0;
-    box-shadow: 0 5px 15px 3px #48484842;
-    }
-.block {
-    width: 300px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 5vh;
+  align-items: center;
+  border-bottom: 1px solid #a0a0a0;
+  box-shadow: 0 5px 15px 3px #48484842;
 }
+
 .select {
-    min-width: 7vh;
-    background: #ffc107;
-    border-radius: 3px;
+  min-width: 7vh;
+  background: #ffc107;
+  border-radius: 3px;
 }
 
 .search__country {
-    margin: 0 5px;
-    border: solid 1px black;
-    border-radius: 3px;
+  margin: 0 5px;
+  border: solid 1px black;
+  border-radius: 3px;
 }
 
 .select_language {
+  margin-right: 5px;
+
   .custom-select:focus {
     box-shadow: none;
     border-color: #ced4da;
   }
 }
 
-@media (max-width: 700px) {
-    .navbar {
-        flex-direction: column!important;
+.header_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+}
+
+.header_right {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+
+  p {
+    white-space: nowrap;
+    padding: 0 5px;
+  }
+}
+
+.header_left {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+
+@media (max-width: 850px) {
+  .header_box {
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+
+    p {
+      padding: 0 5px;
     }
+  }
+
+  .navbar-brand {
+    img {
+      width: 100px !important;
+    }
+  }
+
+  .header_left {
+    align-items: flex-start;
+    width: 100%;
+
+    .select_language {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .header_right {
+    justify-content: flex-end;
+    padding: 0;
+
+    button {
+      padding: 2px 5px !important;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .header_left {
+    flex-wrap: wrap;
+  }
 }

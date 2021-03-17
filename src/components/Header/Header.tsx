@@ -18,35 +18,33 @@ type RouterProps = {
 const Header: React.FC<RouteComponentProps<RouterProps>> = ({ history }) => {
   const t = translations[UiStore.language];
   return (
-    <Navbar
-      className="justify-content-between align-items-center header"
-      bg="light"
-      variant="light"
-    >
-      <NavLink to="/">
-        <Navbar.Brand>
-          <img src={Logo} alt="Logo" />
-        </Navbar.Brand>
-      </NavLink>
-      <Form inline>
-        {history.location.pathname !== '/' ? null : <InputSearch />}
-        <Form.Group
-          className="select_language ml-3"
-          controlId="exampleForm.SelectCustomSizeSm"
-        >
-          <Form.Control
-            as="select"
-            custom
-            value={UiStore.language}
-            onChange={({ target: { value } }) => UiStore.setLanguage(value)}
+    <Navbar className="header_box" bg="light" variant="light">
+      <div className="header_left">
+        <NavLink to="/">
+          <Navbar.Brand>
+            <img src={Logo} alt="Logo" />
+          </Navbar.Brand>
+        </NavLink>
+        <Form inline>
+          <Form.Group
+            className="select_language"
+            controlId="exampleForm.SelectCustomSizeSm"
           >
-            <option value="en">EN</option>
-            <option value="ru">RU</option>
-            <option value="cn">CN</option>
-          </Form.Control>
-        </Form.Group>
-      </Form>
-      <div className="block">
+            <Form.Control
+              as="select"
+              custom
+              value={UiStore.language}
+              onChange={({ target: { value } }) => UiStore.setLanguage(value)}
+            >
+              <option value="en">EN</option>
+              <option value="ru">RU</option>
+              <option value="cn">CN</option>
+            </Form.Control>
+          </Form.Group>
+          {history.location.pathname !== '/' ? null : <InputSearch />}
+        </Form>
+      </div>
+      <div className="header_right">
         <p className="mb-0">
           {`${UserStore.userInfo.name} (${UserStore.userInfo.login})`}
           <User className="ml-1" color="blue" size={16} />

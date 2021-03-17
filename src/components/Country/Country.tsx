@@ -71,7 +71,7 @@ const Country: React.FC<Props> = ({ country, id }) => {
       </Row>
       <Row>
         <Col className="col-12 col-lg-9">
-          <div>
+          <div className="country_data_box">
             <Row>
               <Col className="col-12 col-md-4">
                 <img
@@ -125,11 +125,13 @@ const Country: React.FC<Props> = ({ country, id }) => {
               <Col>
                 <div className="mt25">
                   <h5>{t.attractions}</h5>
-                  <Gallery
-                    backdropClosesModal
-                    thumbnailWidth={100}
-                    images={modefiedAttractions || []}
-                  />
+                  <div>
+                    <Gallery
+                      backdropClosesModal
+                      thumbnailWidth={100}
+                      images={modefiedAttractions || []}
+                    />
+                  </div>
                 </div>
               </Col>
             </Row>
