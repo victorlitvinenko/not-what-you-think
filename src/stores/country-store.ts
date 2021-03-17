@@ -5,7 +5,7 @@ import { CountryType } from './country';
 import UiStore from './ui-store';
 
 class CountryStore {
-  isLoading = true;
+  isLoading = false;
 
   countries: CountryType[] = [];
 
@@ -20,7 +20,6 @@ class CountryStore {
     try {
       this.isLoading = true;
       this.countries = await request(`countries/${language}`, 'GET');
-      this.isLoading = false;
     } catch (error) {
       // console.log(error);
     } finally {

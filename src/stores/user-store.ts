@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { autorun, makeAutoObservable } from 'mobx';
 import jwt from 'jsonwebtoken';
 import request from '../api/api';
 import UiStore from './ui-store';
@@ -16,33 +16,36 @@ class UserStore {
   isLoading = false;
 
   constructor() {
+    makeAutoObservable(this);
     this.token =
       localStorage.getItem('token') || sessionStorage.getItem('token') || '';
-    if (this.token) {
-      this.userInfo = {
-        login: jwt.decode(this.token).login,
-        name: jwt.decode(this.token).name,
-      };
-    }
-    makeAutoObservable(this);
+    autorun(() => {
+      if (this.token) {
+        this.userInfo = {
+          login: jwt.decode(this.token).login,
+          name: jwt.decode(this.token).name,
+        };
+      }
+    });
   }
 
   async login(login: string, password: string, remember = true) {
     try {
       this.isLoading = true;
       if (!this.token && login && password) {
-        this.token = (
+        const result = (
           await request<Record<string, string>>('login', 'POST', {
             login,
             password,
           })
         )?.token;
-        if (this.token) {
+        if (result) {
           if (remember) {
-            localStorage.setItem('token', this.token);
+            localStorage.setItem('token', result);
           } else {
-            sessionStorage.setItem('token', this.token);
+            sessionStorage.setItem('token', result);
           }
+          this.token = result;
         }
       }
     } catch (error) {
