@@ -108,6 +108,8 @@
   }
 
   .card {
+    padding: 2px;
+    margin: 5px;
     color: #333;
 
     &:hover {
@@ -133,5 +135,11 @@
     & path {
       fill: lightgrey;
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .country_card_link .card {
+    width: inherit!important;
   }
 }
