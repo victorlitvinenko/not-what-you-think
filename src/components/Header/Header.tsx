@@ -49,7 +49,11 @@ const Header: React.FC<RouteComponentProps<RouterProps>> = ({ history }) => {
           {`${UserStore.userInfo.name} (${UserStore.userInfo.login})`}
           <User className="ml-1" color="blue" size={16} />
         </p>
-        <Button onClick={() => UserStore.logout()} variant="primary">
+        <Button
+          className="nowrap"
+          onClick={() => UserStore.logout()}
+          variant="primary"
+        >
           {t.signOut}
         </Button>
       </div>
