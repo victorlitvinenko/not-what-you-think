@@ -22,7 +22,7 @@ const MainPage: React.FC = () => {
             {CountryStore.countries.map((country: CountryType) => (
               <Link
                 key={country._id}
-                className="country_card_link"
+                className={`country_card_link ${country.className}`}
                 to={`/country/${country._id}`}
               >
                 <div className="mt-4">

@@ -16,6 +16,7 @@ export type CountryType = {
   attractions: Record<string, string>[];
   capitalLon: number;
   capitalLat: number;
+  className: string;
 };
 
 export class Country {

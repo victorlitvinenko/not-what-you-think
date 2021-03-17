@@ -26,6 +26,17 @@ class CountryStore {
       this.isLoading = false;
     }
   }
+
+  filterCountries(searchTerm: string) {
+    this.countries.forEach((country) => {
+      if (
+        country.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        country.capital.toLowerCase().includes(searchTerm.toLowerCase())
+      ) {
+        Object.assign(country, { className: '' });
+      } else Object.assign(country, { className: 'd-none' });
+    });
+  }
 }
 
 export default new CountryStore();
