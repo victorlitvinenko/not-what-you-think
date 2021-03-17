@@ -1,17 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Widgets.module.css';
 
 type ModalProps = {
   value: number;
   changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   changeEditModeHandler: (value: boolean) => void;
+  isEdit: boolean;
 };
 
 const InputModal: React.FC<ModalProps> = ({
   value,
   changeHandler,
   changeEditModeHandler,
+  isEdit,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -20,38 +22,38 @@ const InputModal: React.FC<ModalProps> = ({
     if (
       e.target instanceof HTMLElement &&
       modalRef.current &&
-      modalRef.current.contains(e.target)
+      !modalRef.current.contains(e.target)
     ) {
       changeEditModeHandler(false);
     }
   };
 
-  const toggleListeners = useCallback(
-    (isActivate: boolean) => {
-      if (inputRef && inputRef.current) {
-        if (isActivate) {
-          document.addEventListener('click', () => blurHandler);
-          inputRef.current.addEventListener('keydown', (e: KeyboardEvent) => {
-            if (e.key === 'Enter') changeEditModeHandler(false);
-          });
-        } else {
-          document.removeEventListener('click', () => blurHandler);
-          inputRef.current.removeEventListener(
-            'keydown',
-            (e: KeyboardEvent) => {
-              if (e.key === 'Enter') changeEditModeHandler(false);
-            }
-          );
-        }
+  const toggleListeners = (isActivate: boolean) => {
+    if (inputRef && inputRef.current) {
+      if (isActivate) {
+        document.addEventListener('click', blurHandler);
+        inputRef.current.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'Enter') changeEditModeHandler(false);
+        });
+      } else {
+        document.removeEventListener('click', blurHandler);
+        inputRef.current.removeEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'Enter') changeEditModeHandler(false);
+        });
       }
-    },
-    [blurHandler, changeEditModeHandler]
-  );
+    }
+  };
 
   useEffect(() => {
     toggleListeners(true);
     return () => toggleListeners(false);
-  }, [toggleListeners]);
+  }, []);
+
+  useEffect(() => {
+    if (inputRef && inputRef.current) {
+      inputRef.current.select();
+    }
+  }, [isEdit]);
 
   return (
     <div className={styles.inputModal} ref={modalRef}>
@@ -74,8 +76,13 @@ type Props = {
 };
 
 const ExchangeField: React.FC<Props> = ({ currency, quantity, onChange }) => {
+  const fieldRef = useRef<HTMLDivElement>(null);
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [value, setValue] = useState<number>(quantity);
+
+  const clickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsEdit(true);
+  };
 
   const changeEditModeHandler = (newIsEdit: boolean) => {
     setIsEdit(newIsEdit);
@@ -89,16 +96,28 @@ const ExchangeField: React.FC<Props> = ({ currency, quantity, onChange }) => {
     if (!isEdit) onChange(currency, value);
   }, [isEdit]);
 
-  return isEdit ? (
-    <InputModal
-      value={value}
-      changeHandler={changeHandler}
-      changeEditModeHandler={changeEditModeHandler}
-    />
-  ) : (
-    <div>
-      <span>{currency} :</span>
-      <span>{quantity}</span>
+  return (
+    <div
+      className={styles.ExchangeField}
+      onKeyDown={() => null}
+      tabIndex={0}
+      role="button"
+      ref={fieldRef}
+      onClick={clickHandler}
+    >
+      {isEdit ? (
+        <InputModal
+          value={value}
+          changeHandler={changeHandler}
+          changeEditModeHandler={changeEditModeHandler}
+          isEdit={isEdit}
+        />
+      ) : (
+        <>
+          <span>{currency}</span>
+          <span>{quantity}</span>
+        </>
+      )}
     </div>
   );
 };
