@@ -94,6 +94,7 @@
   border-radius: 5px;
   background-color: white;
   text-align: right;
+  color: black;
 }
 .ExchangeField:first-of-type>span:first-of-type{
   margin-right: 0;
