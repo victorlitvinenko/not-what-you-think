@@ -1,4 +1,57 @@
 .feedback {
-    max-height: 400px;
-    overflow: auto;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.header {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+
+  h5 {
+    margin-right: 10px;
+    z-index: 1111;
+  }
+}
+.header > div {
+  width: 80px;
+
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+.body {
+  color: #fff;
+  position: relative;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.274);
+  border-radius: 5px;
+  p {
+    padding: 10px 15px;
+  }
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: gray;
+  opacity: 0.1;
+  border-radius: 5px;
+}
+
+.header_background {
+  width: 100% !important;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: gray;
+  opacity: 0.1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 255);
 }

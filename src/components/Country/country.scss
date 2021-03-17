@@ -58,7 +58,7 @@
     background-color: #fff;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
-    border: 2px solid rgba(0,0,0,0.2);
+    border: 2px solid rgba(0, 0, 0, 0.2);
     border-top: 1px solid #ccc;
     cursor: pointer;
     background-clip: padding-box;
@@ -70,12 +70,16 @@
 }
 
 .ReactGridGallery {
-  &_tile:not(:last-child) {
-    margin-right: 10px !important;
+  &_tile {
+    border-radius: 5px;
+    &:not(:last-child) {
+      margin-right: 10px !important;
+    }
   }
 
   &_tile-viewport {
     border: 1px solid #c0bfbf;
+    border-radius: 5px;
     max-width: 125px;
     &:hover {
       transition: all 0.3s;
@@ -116,10 +120,10 @@
 .widgets__background {
   background: black;
   width: 255px;
-    height: 100%;
-    position: absolute;
-    opacity: .1;
-    border-radius: 5px;
+  height: 100%;
+  position: absolute;
+  opacity: 0.1;
+  border-radius: 5px;
 }
 .Widgets_Widgets__15j5f {
   color: white;
