@@ -5,11 +5,12 @@ Single page application that shows many information about different countries in
 ## Stack
 - React
 - TypeScript
+- MobX
 - Weather API
 - React-Leaflet map
 - React-gallery
 - React-video
 
 ## Usage
-- npm i
-- npm start or npm build
+- ```npm i```
+- ```npm start``` or ```npm run build```
