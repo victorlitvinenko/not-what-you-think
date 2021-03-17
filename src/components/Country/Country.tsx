@@ -63,7 +63,7 @@ const Country: React.FC<Props> = ({ country, id }) => {
             <div className="country-title-center" />
             <div className="country-title-right mb-1">
               <Link to="/">
-                <Button>Back</Button>
+                <Button>{t.back}</Button>
               </Link>
             </div>
           </div>
@@ -124,7 +124,7 @@ const Country: React.FC<Props> = ({ country, id }) => {
             <Row>
               <Col>
                 <div className="mt25">
-                  <h5>Attraction</h5>
+                  <h5>{t.attractions}</h5>
                   <Gallery
                     backdropClosesModal
                     thumbnailWidth={100}
