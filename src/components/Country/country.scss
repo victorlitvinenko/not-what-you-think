@@ -124,8 +124,10 @@
 .Widgets_Widgets__15j5f {
   color: white;
 }
-// svg:hover {
-//   & path {
-//     fill: lightgrey;
-//   }
-// }
+#lightboxBackdrop button {
+  svg:hover {
+    & path {
+      fill: lightgrey;
+    }
+  }
+}
