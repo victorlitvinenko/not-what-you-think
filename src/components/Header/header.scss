@@ -39,15 +39,16 @@
 .header_right {
   width: 300px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 0 5px;
 
   p {
     white-space: nowrap;
     padding: 0 5px;
+    margin-right: 15px;
   }
-  
+
   button {
     white-space: nowrap;
   }
