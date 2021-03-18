@@ -1,0 +1,106 @@
+.footer {
+  background: rgb(100, 100, 100);
+  display: flex;
+  justify-content: space-around;
+  min-height: 5vh;
+  align-items: center;
+}
+.footer__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  color: rgb(207, 207, 207);
+  padding: 3px 10px;
+}
+.footer__content a {
+  display: inline-block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: underline;
+  padding: 4px;
+
+}
+
+a.rollover__vl {
+  display: block;
+}
+a.rollover__vl:hover {
+  background: url(../../../src/assets/images/vl.jpeg) no-repeat;
+  display: block;
+  background-size: contain;
+  background-position: center;
+  color: transparent;
+}
+a.rollover__vd {
+  display: block;
+}
+a.rollover__vd:hover {
+  background: url(../../../src/assets/images/vd.jpeg) no-repeat;
+  display: block;
+  background-size: contain;
+  background-position: center;
+  color: transparent;
+}
+a.rollover__ii {
+  display: block;
+}
+a.rollover__ii:hover {
+  background: url(../../../src/assets/images/ii.jpeg) no-repeat;
+  display: block;
+  background-size: contain;
+  background-position: center;
+  color: transparent;
+}
+a.rollover__vs {
+  display: block;
+}
+a.rollover__vs:hover {
+  background: url(../../../src/assets/images/vs.jpeg) no-repeat;
+  display: block;
+  background-size: contain;
+  background-position: center;
+  color: transparent;
+}
+a.rollover__vld {
+  display: block;
+}
+a.rollover__vld:hover {
+  background: url(../../../src/assets/images/vld.png) no-repeat;
+  display: block;
+  background-size: contain;
+  background-position: center;
+  color: transparent;
+}
+a.rollover__sp {
+  display: block;
+}
+a.rollover__sp:hover {
+  background: url(../../../src/assets/images/sp.png) no-repeat;
+  display: block;
+  background-size: contain;
+  background-position: center;
+  color: transparent;
+}
+
+.footer__year_box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  a {
+    padding: 5px;
+    img {
+      margin: 0!important;
+    }
+  }
+  .footer__year {
+    padding: 5px;
+  }
+}
+@media (max-width: 800px) {
+  .footer {
+    flex-direction: column;
+    padding-bottom: 10px;
+  }
+}
+
